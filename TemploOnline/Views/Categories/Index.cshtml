@@ -1,0 +1,24 @@
+@model TemploOnline.Models.ViewModels.CategoryListingViewModel
+@{
+  ViewData["Title"] = "Categorias";
+}
+
+<div class="container">
+  <h4>Categorias</h4>
+  <hr>
+  <table class="table striped-table">
+    <thead>
+      <tr>
+        <th>Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+      @foreach (var categoria in Model.Categories)
+      {
+        <tr>
+          <td>@categoria.Name</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
