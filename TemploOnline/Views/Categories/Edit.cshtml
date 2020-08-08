@@ -1,0 +1,24 @@
+@model TemploOnline.Models.ViewModels.CategoryViewModel
+@{
+  var title = $"Editar: {Model.Name}";
+  var description = $"Editar categoria {Model.Name}";
+  ViewData["Title"] = $"{title} | {description}";
+}
+
+<div class="container">
+  <h1>@title</h1>
+  <p>@description</p>
+  <hr>
+  <form method="post" asp-action="edit">
+    <div class="form-group">
+      <label asp-for="@Model.Name"></label>
+      <input class="form-control" asp-for="@Model.Name" type="text">
+      <span asp-validation-for="@Model.Name" class="text-danger"></span>
+    </div>
+
+    <input asp-for="@Model.Id" type="hidden">
+    @Html.AntiForgeryToken()    
+    <a asp-action="Index" class="btn bg-light"><i class="fas fa-angle-double-left"></i> Cancelar</a>
+    <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Salvar</button>
+  </form>
+</div>

@@ -20526,8 +20526,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\Views\\Categories\\Details.cshtml",
+      "TargetPath": "Views\\Categories\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\Views\\Categories\\Edit.cshtml",
+      "TargetPath": "Views\\Categories\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -20548,6 +20558,11 @@
     {
       "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\Views\\Categories\\Index.cshtml",
       "TargetPath": "Views\\Categories\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\Views\\Categories\\New.cshtml",
+      "TargetPath": "Views\\Categories\\New.cshtml",
       "FileKind": "mvc"
     },
     {

@@ -74,3 +74,6 @@ C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\ne
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\TemploOnline.genruntimeconfig.cache
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Categories\Index.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Categories\New.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Categories\Details.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Categories\Edit.cshtml.g.cs

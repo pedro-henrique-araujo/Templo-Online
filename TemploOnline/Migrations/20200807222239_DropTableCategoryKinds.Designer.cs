@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TemploOnline.Data;
 
 namespace TemploOnline.Migrations
 {
     [DbContext(typeof(TemploOnlineContext))]
-    partial class TemploOnlineContextModelSnapshot : ModelSnapshot
+    [Migration("20200807222239_DropTableCategoryKinds")]
+    partial class DropTableCategoryKinds
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -188,6 +190,40 @@ namespace TemploOnline.Migrations
                     b.ToTable("People");
                 });
 
+            modelBuilder.Entity("TemploOnline.Models.EntityModels.Student", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("TemploOnline.Models.EntityModels.Teacher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Teachers");
+                });
+
             modelBuilder.Entity("TemploOnline.Models.EntityModels.User", b =>
                 {
                     b.Property<string>("Id")
@@ -306,6 +342,24 @@ namespace TemploOnline.Migrations
                     b.HasOne("TemploOnline.Models.EntityModels.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("TemploOnline.Models.EntityModels.Student", b =>
+                {
+                    b.HasOne("TemploOnline.Models.EntityModels.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("TemploOnline.Models.EntityModels.Teacher", b =>
+                {
+                    b.HasOne("TemploOnline.Models.EntityModels.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

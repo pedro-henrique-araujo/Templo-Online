@@ -1,0 +1,26 @@
+@model TemploOnline.Models.ViewModels.CategoryViewModel
+@{
+  var title = $"Categoria: {Model.Name}";
+  var description = $"Detalhes da categoria {Model.Name}";
+  ViewData["Title"] = $"{title} | {description}";
+}
+
+<div class="container">
+  <h1>@title</h1>
+  <p>@description</p>
+  <a asp-action="Index" class="btn bg-light">
+    <i class="fas fa-angle-double-left"></i> Voltar
+  </a>
+  <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+    <i class="far fa-edit"></i> Editar
+  </a>
+  <hr>
+  <p>
+    <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Id): </span>
+    <span>@Model.Id</span>
+  </p>
+  <p>
+    <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Name): </span>
+    <span>@Model.Name</span>
+  </p>
+</div>

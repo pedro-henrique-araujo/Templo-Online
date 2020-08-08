@@ -7,4 +7,17 @@ namespace TemploOnline.Models.ViewModels
   {
     public List<Category> Categories { get; set; }
   }
+
+  public class CategoryViewModel : NomeableEntityViewModel
+  {
+    public CategoryViewModel()
+    {        
+    }
+
+    public CategoryViewModel(Category category)
+      :base(category)
+    {
+        
+    }
+  }
 }
