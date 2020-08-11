@@ -1558,6 +1558,9 @@
           "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll": {}
         }
       },
+      "System.Web.Http/4.0.0": {
+        "type": "package"
+      },
       "System.Xml.ReaderWriter/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -5590,6 +5593,18 @@
         "system.threading.tasks.extensions.nuspec"
       ]
     },
+    "System.Web.Http/4.0.0": {
+      "sha512": "KDoOc/zHxA4tdnXsazg8+Mvqby7IruaFS1NQQd3LgWK0SplCeHYvGAv+q+OlmNeedL1cugnglHsp+K6WzX97aQ==",
+      "type": "package",
+      "path": "system.web.http/4.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "System.Web.Http.dll",
+        "system.web.http.4.0.0.nupkg.sha512",
+        "system.web.http.nuspec"
+      ]
+    },
     "System.Xml.ReaderWriter/4.3.0": {
       "sha512": "GrprA+Z0RUXaR4N7/eW71j1rgMnEnEVlgii49GZyAjTH7uliMnrOU3HNFBr6fEDBCJCIdlVNq9hHbaDR621XBA==",
       "type": "package",
@@ -5848,7 +5863,8 @@
       "Microsoft.AspNetCore.Identity >= 2.2.0",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.6",
       "Microsoft.EntityFrameworkCore.Design >= 3.1.6",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.6"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 3.1.6",
+      "System.Web.Http >= 4.0.0"
     ]
   },
   "packageFolders": {
@@ -5905,6 +5921,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[3.1.6, )"
+          },
+          "System.Web.Http": {
+            "target": "Package",
+            "version": "[4.0.0, )"
           }
         },
         "imports": [

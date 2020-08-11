@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "eEJ1uhN6HUQdihX4pHb8p4xv99NuxW9MMkHaPJeCFwmGEnpeoXDAQkf7r1j8uc2NxMMnFwo2IUhl57cPUs+jeQ==",
+  "dgSpecHash": "/J92M0nVAS2FdLtQM3tLfbQ7+76rLIBO2wD7BNm6WFYrK+9cKBCm05e8OJ3uO53z5CF53Sg3ue0g+kSQ3TfKZQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\TemploOnline.csproj",
   "expectedPackageFiles": [
@@ -116,6 +116,7 @@
     "C:\\Users\\Pedro Henrique\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\Pedro Henrique\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\Pedro Henrique\\.nuget\\packages\\system.threading.tasks.extensions\\4.3.0\\system.threading.tasks.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\Pedro Henrique\\.nuget\\packages\\system.web.http\\4.0.0\\system.web.http.4.0.0.nupkg.sha512",
     "C:\\Users\\Pedro Henrique\\.nuget\\packages\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Users\\Pedro Henrique\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\Pedro Henrique\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",

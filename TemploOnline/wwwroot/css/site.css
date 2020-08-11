@@ -76,3 +76,10 @@ body {
 {
   border-radius: 0px;
 }
+
+
+/* Container width */
+
+.container {
+  width: 90%;
+}

@@ -1,7 +1,7 @@
-@model TemploOnline.Models.ViewModels.CategoryViewModel
+@model TemploOnline.Models.ViewModels.TextBookDetailsViewModel
 @{
-  var title = $"Categoria: {Model.Name}";
-  var description = $"Detalhes da categoria {Model.Name}";
+  var title = $"Revista: {Model.Name}";
+  var description = $"Detalhes da revista {Model.Name}";
   ViewData["Title"] = $"{title} | {description}";
 }
 
@@ -13,21 +13,23 @@
 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
   <i class="far fa-edit"></i> Editar
 </a>
-<button class="btn btn-danger" id="btn-delete" data-category-id="@Model.Id">
-  <i class="fas fa-times"></i> Remover
-</button>
+
 <hr>
 <p>
   <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Id): </span>
-  <span>@Model.Id</span>
+  <span>@Model.Id</span>  
 </p>
 <p>
   <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Name): </span>
   <span>@Model.Name</span>
 </p>
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.CategoryName): </span>
+  <span>@Model.CategoryName</span>
+</p>
 
 @section scripts
 {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
-  <script src="~/js/categories/details.js"></script>
+  <script src="~/js/textbooks/details.js"></script>
 }

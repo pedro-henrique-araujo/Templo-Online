@@ -1,0 +1,32 @@
+@model TemploOnline.Models.ViewModels.TextBookListingViewModel
+@{
+  var title = "Revistas";
+  var description = "Listagem de Revistas";
+  ViewData["Title"] = $"{title} | {description}";
+}
+
+<h1>@title</h1>
+<p>@description</p>
+<a asp-action="New" class="btn btn-primary"><i class="far fa-file"></i> Novo</a>
+<hr>
+@if (@Model.TextBooks.Count() == 0)
+{
+  <p>Não existem revistas cadastradas, clique em novo</p>
+}
+else
+{
+  <table class="table">
+    <tbody>
+      @foreach (var textBook in Model.TextBooks)
+      {
+        <tr class="row">
+          <td class="col-sm-12">
+            <a asp-action="Details" asp-route-id="@textBook.Id" class="btn col-sm-12 text-left">
+              @textBook.Name
+            </a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

@@ -1,0 +1,29 @@
+@model TemploOnline.Models.ViewModels.TextBookViewModel
+@{
+  var title = $"Editar: {Model.Name}";
+  var description = $"Editar categoria {Model.Name}";
+  ViewData["Title"] = $"{title} | {description}";
+}
+
+<h1>@title</h1>
+<p>@description</p>
+<hr>
+<form method="post" asp-action="edit">
+  <div class="form-group">
+    <label asp-for="@Model.Name"></label>
+    <input asp-for="@Model.Name" type="Text" class="form-control">
+    <span class="text-danger" asp-validation-for="@Model.Name"></span>
+  </div>
+  <div class="form-group">
+    <label>Categoria</label>
+    <select class="form-control" asp-for="@Model.CategoryId" asp-items="@Model.Categories">
+      <option>Selecione uma categoria</option>
+    </select>
+    <span class="text-danger" asp-validation-for="@Model.CategoryId"></span>
+  </div>
+
+  <input type="hidden" asp-for="@Model.Id">
+  @Html.AntiForgeryToken()
+  <a asp-action="Index" class="btn bg-light"><i class="fas fa-angle-double-left"></i> Cancelar</a>
+  <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Salvar</button>
+</form>

@@ -57,7 +57,6 @@ C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\ne
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\TemploOnline.TagHelpers.output.cache
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\TemploOnline.RazorCoreGenerate.cache
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -77,3 +76,7 @@ C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\ne
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Categories\New.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Categories\Details.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Categories\Edit.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\TextBooks\Index.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\TextBooks\New.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\TextBooks\Details.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\TextBooks\Edit.cshtml.g.cs

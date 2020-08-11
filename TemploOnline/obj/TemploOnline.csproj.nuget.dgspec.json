@@ -55,6 +55,10 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[3.1.6, )"
+            },
+            "System.Web.Http": {
+              "target": "Package",
+              "version": "[4.0.0, )"
             }
           },
           "imports": [

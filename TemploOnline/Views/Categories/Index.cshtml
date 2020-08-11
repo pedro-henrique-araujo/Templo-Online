@@ -5,32 +5,28 @@
   ViewData["Title"] = $"{title} | {description}";
 }
 
-<div class="container">
-  <h1>@title</h1>
-  <p>@description</p>
-  <a asp-action="New" class="btn btn-primary"><i class="far fa-file"></i> Novo</a>
-  <hr>
-  <table class="table striped-table">
-    <thead>
-      <tr>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
+<h1>@title</h1>
+<p>@description</p>
+<a asp-action="New" class="btn btn-primary"><i class="far fa-file"></i> Novo</a>
+<hr>
+@if (@Model.Categories.Count() == 0)
+{
+  <p>Não existem categorias cadastradas, clique em novo</p>
+}
+else
+{
+  <table class="table">
     <tbody>
       @foreach (var categoria in Model.Categories)
       {
-        <tr>
-          <td>@categoria.Id</td>
-          <td>@categoria.Name</td>
-          <td>
-              <a asp-action="Details" asp-route-id="@categoria.Id" class="btn btn-info">
-                <i class="fas fa-info"></i> Detalhes
+        <tr class="row">
+          <td class="col-sm-12">
+              <a asp-action="Details" asp-route-id="@categoria.Id" class="btn col-sm-12 text-left">
+                @categoria.Name
               </a>
-            </td>
+          </td>
         </tr>
       }
     </tbody>
   </table>
-</div>
+}
