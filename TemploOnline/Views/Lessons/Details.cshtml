@@ -1,0 +1,26 @@
+@model TemploOnline.Models.ViewModels.LessonViewModel
+@{
+  var title = "Detalhes da lição";
+  ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+<a asp-action="Details" asp-controller="Textbooks" asp-route-id="@Model.TextbookId">
+  <i class="fas fa-angle-double-left"></i> Voltar
+</a>
+<hr>
+
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Id): </span>
+  <span>@Model.Id</span>
+</p>
+
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.LessonNumber): </span>
+  <span>@Model.LessonNumber</span>
+</p>
+
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Name): </span>
+  <span>@Model.Name</span>
+</p>

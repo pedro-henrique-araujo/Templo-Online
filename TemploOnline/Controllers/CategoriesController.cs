@@ -8,7 +8,7 @@ namespace TemploOnline.Controllers
 {
   public class CategoriesController : Controller
   {
-    public TemploOnlineContext _context;
+    private TemploOnlineContext _context;
 
     public CategoriesController(TemploOnlineContext context)
     {

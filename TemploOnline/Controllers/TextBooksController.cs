@@ -8,11 +8,11 @@ using TemploOnline.Models.ViewModels;
 
 namespace TemploOnline.Controllers
 {
-  public class TextBooksController : Controller
+  public class TextbooksController : Controller
   {
     private TemploOnlineContext _context;
 
-    public TextBooksController(TemploOnlineContext context)
+    public TextbooksController(TemploOnlineContext context)
     {
         _context = context;
     }
@@ -48,11 +48,12 @@ namespace TemploOnline.Controllers
     {
       if (ModelState.IsValid)
       {
-        var textBook = new TextBook
+        var textBook = new Textbook
         {
           Name = viewModel.Name,
           CategoryId = viewModel.CategoryId
-        };
+        };        
+
         _context.TextBooks.Add(textBook);
         _context.SaveChanges();
         return RedirectToAction(nameof(Index));
@@ -73,12 +74,14 @@ namespace TemploOnline.Controllers
       {
         var textBook = _context.TextBooks
           .Include(t => t.Category)
+          .Include(t => t.Lessons)
           .Where(t => t.Id == id)
           .FirstOrDefault();
           
         if (textBook != null)
         {
-          return View(new TextBookDetailsViewModel(textBook));
+          var viewModel = new TextBookViewModel(textBook);
+          return View(viewModel);
         }
       }
       return RedirectToAction(nameof(Index));
@@ -88,7 +91,11 @@ namespace TemploOnline.Controllers
     {
       if (id != null)
       {
-        var textBook = _context.TextBooks.Find(id);
+        var textBook = _context.TextBooks
+          .Include(t => t.Category)
+          .Include(t => t.Lessons)
+          .Where(t => t.Id == id)
+          .FirstOrDefault();
         if (textBook != null)
           return View(new TextBookViewModel(textBook)
           {
@@ -109,12 +116,13 @@ namespace TemploOnline.Controllers
     {
       if (ModelState.IsValid)
       {
-        var textBook = new TextBook
+        var textBook = new Textbook
         {
           Id = viewModel.Id,
           Name = viewModel.Name,
           CategoryId = viewModel.CategoryId
-        };
+        };        
+
         _context.TextBooks.Update(textBook);
         _context.SaveChanges();
         return RedirectToAction(nameof(Index));

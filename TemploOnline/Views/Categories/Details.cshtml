@@ -1,12 +1,10 @@
 @model TemploOnline.Models.ViewModels.CategoryViewModel
 @{
-  var title = $"Categoria: {Model.Name}";
-  var description = $"Detalhes da categoria {Model.Name}";
-  ViewData["Title"] = $"{title} | {description}";
+  var title = "Detalhes da revista";
+  ViewData["Title"] = title;
 }
 
 <h1>@title</h1>
-<p>@description</p>
 <a asp-action="Index" class="btn bg-light">
   <i class="fas fa-angle-double-left"></i> Voltar
 </a>

@@ -1,19 +1,19 @@
-@model TemploOnline.Models.ViewModels.TextBookDetailsViewModel
+@model TemploOnline.Models.ViewModels.TextBookViewModel
 @{
-  var title = $"Revista: {Model.Name}";
-  var description = $"Detalhes da revista {Model.Name}";
-  ViewData["Title"] = $"{title} | {description}";
+  var title = "Detalhes da revista";
+  ViewData["Title"] = title;
 }
 
 <h1>@title</h1>
-<p>@description</p>
 <a asp-action="Index" class="btn bg-light">
   <i class="fas fa-angle-double-left"></i> Voltar
 </a>
 <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
   <i class="far fa-edit"></i> Editar
 </a>
-
+<button class="btn btn-danger" id="btn-delete" data-textbook-id="@Model.Id">
+  <i class="fas fa-times"></i> Remover
+</button>
 <hr>
 <p>
   <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Id): </span>
@@ -27,6 +27,35 @@
   <span class="font-weight-bold">@Html.DisplayNameFor(m => m.CategoryName): </span>
   <span>@Model.CategoryName</span>
 </p>
+@if (@Model.Lessons.Count() > 0)
+{
+  <p>
+    <span class="font-weight-bold">
+      Lições:
+    </span>
+  <ul>
+    @foreach (var lesson in @Model.Lessons.OrderBy(l => l.LessonNumber))
+    {
+      <li>
+        <span>Lição @lesson.LessonNumber: </span>
+          <span>@lesson.Name</span>
+      </li>    
+    }
+  </ul>
+  </p>
+}
+
+@if (@Model.Lessons.Count() < 14)
+{
+  <a 
+    asp-action="New" 
+    asp-controller="Lessons" 
+    asp-route-textBookId="@Model.Id"
+    class="btn btn-primary">
+    <i class="far fa-file"></i> Adicionar Lição
+  </a>
+}
+
 
 @section scripts
 {

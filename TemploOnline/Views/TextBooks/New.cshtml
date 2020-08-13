@@ -1,12 +1,10 @@
 @model TemploOnline.Models.ViewModels.TextBookViewModel
 @{
-  var title = "Nova Revista";
-  var description = "Cadastre uma nova revista";
-  ViewData["Title"] = $"{title} | {description}";
+  var title = "Nova revista";
+  ViewData["Title"] = title;
 }
 
 <h1>@title</h1>
-<p>@description</p>
 <hr>
 <form method="post" asp-action="new">
   <div class="form-group">
@@ -22,6 +20,7 @@
     </select>
     <span asp-validation-for="@Model.CategoryId" class="text-danger"></span>
   </div>
+  
 
   <input asp-for="@Model.Id" type="hidden">  
   @Html.AntiForgeryToken()

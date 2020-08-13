@@ -1,12 +1,10 @@
 @model TemploOnline.Models.ViewModels.CategoryViewModel
 @{
-  var title = "Nova Categoria";
-  var description = "Cadastre uma nova categoria";
-  ViewData["Title"] = $"{title} | {description}";
+  var title = "Nova categoria";
+  ViewData["Title"] = title;
 }
 
 <h1>@title</h1>
-<p>@description</p>
 <hr>
 <form method="post" asp-action="new">
   <div class="form-group">

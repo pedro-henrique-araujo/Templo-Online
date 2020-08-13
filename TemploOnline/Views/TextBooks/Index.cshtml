@@ -1,12 +1,10 @@
 @model TemploOnline.Models.ViewModels.TextBookListingViewModel
 @{
   var title = "Revistas";
-  var description = "Listagem de Revistas";
-  ViewData["Title"] = $"{title} | {description}";
+  ViewData["Title"] = title;
 }
 
 <h1>@title</h1>
-<p>@description</p>
 <a asp-action="New" class="btn btn-primary"><i class="far fa-file"></i> Novo</a>
 <hr>
 @if (@Model.TextBooks.Count() == 0)

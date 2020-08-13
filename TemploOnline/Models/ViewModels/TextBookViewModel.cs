@@ -7,7 +7,7 @@ namespace TemploOnline.Models.ViewModels
 {
   public class TextBookListingViewModel
   {
-    public IEnumerable<TextBook> TextBooks { get; set; }
+    public IEnumerable<Textbook> TextBooks { get; set; }
   }
 
   public class TextBookViewModel : NomeableEntityViewModel
@@ -16,37 +16,22 @@ namespace TemploOnline.Models.ViewModels
 
     public int CategoryId { get; set; }
 
-    public TextBookViewModel()
-      :base()
-    {
-      
-    }
-
-    public TextBookViewModel(TextBook textBook)
-      :base(textBook)
-    {
-        CategoryId = textBook.CategoryId;
-    }
-  }
-
-  public class TextBookDetailsViewModel : NomeableEntityViewModel
-  {
-    public int CategoryId { get; set; }
-
     [Display(Name = "Categoria")]
     public string CategoryName { get; set; }
 
-    public TextBookDetailsViewModel()
+    public List<Lesson> Lessons { get; set; } = new List<Lesson>();
+
+    public TextBookViewModel()
       :base()
     {
-        
     }
 
-    public TextBookDetailsViewModel(TextBook textBook)
+    public TextBookViewModel(Textbook textBook)
       :base(textBook)
     {
-        CategoryId = textBook.CategoryId;
-        CategoryName = textBook.Category.Name;
+      CategoryId = textBook.CategoryId;
+      CategoryName = textBook.Category.Name;
+      Lessons = textBook.Lessons;
     }
   }
 }

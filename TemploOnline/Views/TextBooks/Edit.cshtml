@@ -1,12 +1,10 @@
 @model TemploOnline.Models.ViewModels.TextBookViewModel
 @{
-  var title = $"Editar: {Model.Name}";
-  var description = $"Editar categoria {Model.Name}";
-  ViewData["Title"] = $"{title} | {description}";
+  var title = "Editar revista";
+  ViewData["Title"] = title;
 }
 
 <h1>@title</h1>
-<p>@description</p>
 <hr>
 <form method="post" asp-action="edit">
   <div class="form-group">
@@ -21,6 +19,15 @@
     </select>
     <span class="text-danger" asp-validation-for="@Model.CategoryId"></span>
   </div>
+
+  @foreach (var lesson in Model.Lessons)
+  {
+    <div class="form-group">
+      <label>Lição @lesson.LessonNumber</label>
+      <input asp-for="@lesson.Name" class="form-control" type="text">
+      <input asp-for="@lesson.LessonNumber" type="hidden">
+    </div>
+  }
 
   <input type="hidden" asp-for="@Model.Id">
   @Html.AntiForgeryToken()
