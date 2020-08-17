@@ -5,9 +5,28 @@
 }
 
 <h1>@title</h1>
-<a asp-action="Details" asp-controller="Textbooks" asp-route-id="@Model.TextbookId">
+<a 
+  asp-action="Details" 
+  asp-controller="Textbooks" 
+  asp-route-id="@Model.TextbookId"
+  class="btn bg-white">
   <i class="fas fa-angle-double-left"></i> Voltar
 </a>
+<a 
+  asp-action="Edit" 
+  asp-route-id="@Model.Id" 
+  asp-route-textbookId="@Model.TextbookId"
+  class="btn btn-primary">
+  <i class="far fa-edit"></i> Editar
+</a>
+
+<button 
+  class="btn btn-danger" 
+  id="btn-delete" 
+  data-lesson-id="@Model.Id", 
+  data-textbook-id="@Model.TextbookId">
+  <i class="fas fa-times"></i> Remover
+</button>
 <hr>
 
 <p>
@@ -16,11 +35,17 @@
 </p>
 
 <p>
-  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.LessonNumber): </span>
-  <span>@Model.LessonNumber</span>
+  <span class="font-weight-bold">Revista: </span>
+  <span>@Model.Textbook.Name</span>
 </p>
 
 <p>
   <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Name): </span>
-  <span>@Model.Name</span>
+  <span>Lição @Model.LessonNumber: @Model.Name</span>
 </p>
+
+@section scripts
+{
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+  <script src="~/js/lessons/details.js"></script>
+}

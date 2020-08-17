@@ -19,7 +19,6 @@ namespace TemploOnline.Controllers.Api
     [HttpDelete("{id}")]
     public ActionResult Delete(int id)
     {
-      var message = new ResultMessage();
       var textBook = _context.TextBooks.Find(id);
       if (textBook != null)
       {
@@ -30,13 +29,17 @@ namespace TemploOnline.Controllers.Api
             _context.Lessons.Remove(lesson);
           }
         _context.SaveChanges();
-        message.Title = "Sucesso!";
-        message.Message = "Revista removida com sucesso!";
-        return Ok(message);
+        return Ok(new ResultMessage
+        (
+          "Sucesso!", 
+          "Revista removida com sucesso!"
+        ));
       }
-      message.Title = "Desculpe!";
-      message.Message = "Não foi possível encontrar uma revista com este Id";
-      return BadRequest(message);
+      return BadRequest(new ResultMessage
+      (
+        "Desculpe!", 
+        "Não foi possível encontrar uma revista com este Id"
+      ));
     }
 
   }

@@ -20586,6 +20586,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\Views\\Lessons\\Edit.cshtml",
+      "TargetPath": "Views\\Lessons\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\Views\\TextBooks\\Index.cshtml",
       "TargetPath": "Views\\TextBooks\\Index.cshtml",
       "FileKind": "mvc"

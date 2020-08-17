@@ -19,15 +19,15 @@ namespace TemploOnline.Controllers
         _context = context;
     }
 
-    public ActionResult New(int? textBookId)
+    public ActionResult New(int? textbookId)
     {
-      if (textBookId != null)
+      if (textbookId != null)
       {
-        var lessonNumbers = GetAvailableLessonNumbers(textBookId.Value);
+        var lessonNumbers = GetAvailableLessonNumbers(textbookId.Value);
 
         return View(new LessonViewModel()
         {
-          TextbookId = textBookId.Value,
+          TextbookId = textbookId.Value,
           LessonNumbers = lessonNumbers
         });
       }
@@ -57,31 +57,71 @@ namespace TemploOnline.Controllers
       return View(viewModel);
     }
 
-    public ActionResult Details(int? id, int? textBookId)
+    public ActionResult Details(int? id, int? textbookId)
     {
-      if (textBookId != null)
+      if (id != null && textbookId != null)
       {
-        if (id != null)
-        {
-          var lesson = _context.Lessons
-            .Include(l => l.Textbook)
-            .Where(l => l.Id == id)
-            .FirstOrDefault();
-          if (lesson != null)
-          {
-            return View(new LessonViewModel(lesson));
-          }
-          
-        }
-        return RedirectToAction("Details", "Textbooks", new { Id = textBookId});
+        var lesson = _context.Lessons
+          .Include(l => l.Textbook)
+          .Where(l => l.Id == id)
+          .FirstOrDefault();
+        if (lesson != null)
+          return View(new LessonViewModel(lesson));    
+        return RedirectToAction("Details", "Textbooks", new { Id = textbookId});
       }
       return RedirectToAction("Index", "Textbooks");
     }
 
-    private List<SelectListItem> GetAvailableLessonNumbers(int textBookId)
+
+    public ActionResult Edit(int? id, int? textbookId)
+    {
+      if (id != null && textbookId != null)
+      {
+        var lesson = _context.Lessons
+          .Include(l => l.Textbook)
+          .Where(l => l.Id == id)
+          .FirstOrDefault();
+        
+          if (lesson != null)
+          {
+            var lessonNumbers = GetAvailableLessonNumbers(textbookId.Value);
+            lessonNumbers.Add(new SelectListItem(
+              lesson.LessonNumber.ToString(), 
+              lesson.LessonNumber.ToString()
+              ));
+            return View(new LessonViewModel(lesson) { LessonNumbers = lessonNumbers });
+          }
+
+        return RedirectToAction("Details", "Textbooks", new { Id = textbookId });
+      }
+      return RedirectToAction("Index", "Textbooks");
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public ActionResult Edit(LessonViewModel viewModel)
+    {
+      if (ModelState.IsValid)
+      {
+        var lesson = _context.Lessons.Find(viewModel.Id);
+        lesson.Name = viewModel.Name;
+        lesson.LessonNumber = viewModel.LessonNumber;
+        _context.SaveChanges();
+        return RedirectToAction("Details", "Textbooks", new { Id = viewModel.TextbookId});
+      }
+      var lessonNumbers = GetAvailableLessonNumbers(viewModel.TextbookId);
+      lessonNumbers.Add(new SelectListItem(
+        viewModel.LessonNumber.ToString(),
+        viewModel.LessonNumber.ToString()
+      ));
+      viewModel.LessonNumbers = lessonNumbers;
+      return View(viewModel);
+    }
+
+    private List<SelectListItem> GetAvailableLessonNumbers(int textbookId)
     {
       var notAvailableNums = _context.Lessons
-                .Where(t => t.TextbookId == textBookId)
+                .Where(t => t.TextbookId == textbookId)
                 .Select(t => t.LessonNumber)
                 .ToList();
       var lessonNumbers = new List<SelectListItem>();

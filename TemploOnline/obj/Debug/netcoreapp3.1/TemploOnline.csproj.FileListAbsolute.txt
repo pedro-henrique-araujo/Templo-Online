@@ -81,3 +81,5 @@ C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\ne
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\TextBooks\Details.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\TextBooks\Edit.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Lessons\New.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Lessons\Details.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\GitHub\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Lessons\Edit.cshtml.g.cs
