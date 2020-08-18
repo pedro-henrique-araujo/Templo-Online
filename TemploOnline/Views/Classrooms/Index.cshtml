@@ -1,0 +1,30 @@
+@model TemploOnline.Models.ViewModels.ClassroomListingViewModel
+@{
+  var title = "Salas de aula";
+  ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+<a asp-action="New" class="btn btn-primary"><i class="far fa-file"></i> Novo</a>
+<hr>
+@if (@Model.Classrooms.Count() == 0)
+{
+  <p>Não existem salas de aula cadastradas, clique em novo</p>
+}
+else
+{
+  <table class="table">
+    <tbody>
+      @foreach (var classroom in Model.Classrooms)
+      {
+        <tr class="row">
+          <td class="col-sm-12">
+            <a asp-action="Details" asp-route-id="@classroom.Id" class="btn col-sm-12 text-left">
+              @classroom.Name
+            </a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

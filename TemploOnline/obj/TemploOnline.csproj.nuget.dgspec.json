@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\TemploOnline.csproj": {}
+    "C:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\TemploOnline.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\TemploOnline.csproj": {
+    "C:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\TemploOnline.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\TemploOnline.csproj",
+        "projectUniqueName": "C:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\TemploOnline.csproj",
         "projectName": "TemploOnline",
-        "projectPath": "C:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\TemploOnline.csproj",
+        "projectPath": "C:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\TemploOnline.csproj",
         "packagesPath": "C:\\Users\\Pedro Henrique\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Pedro Henrique\\Documents\\GitHub\\Templo-Online\\TemploOnline\\obj\\",
+        "outputPath": "C:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Pedro Henrique\\AppData\\Roaming\\NuGet\\NuGet.Config",

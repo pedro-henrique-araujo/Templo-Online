@@ -14,6 +14,8 @@ namespace TemploOnline.Data
 
     public DbSet<Lesson> Lessons { get; set; }
 
+    public DbSet<Classroom> Classrooms { get; set; }
+
     public TemploOnlineContext(DbContextOptions<TemploOnlineContext> options)
       :base(options)
     {

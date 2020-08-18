@@ -15,12 +15,12 @@ else
 {
   <table class="table">
     <tbody>
-      @foreach (var categoria in Model.Categories)
+      @foreach (var category in Model.Categories)
       {
         <tr class="row">
           <td class="col-sm-12">
-              <a asp-action="Details" asp-route-id="@categoria.Id" class="btn col-sm-12 text-left">
-                @categoria.Name
+              <a asp-action="Details" asp-route-id="@category.Id" class="btn col-sm-12 text-left">
+                @category.Name
               </a>
           </td>
         </tr>
