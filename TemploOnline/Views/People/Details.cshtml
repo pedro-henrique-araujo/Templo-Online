@@ -1,0 +1,61 @@
+@model TemploOnline.Models.ViewModels.PersonViewModel
+@{
+  var title = "Detalhes do irmão";
+  ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+<a class="btn bg-light" asp-action="Index">
+  <i class="fas fa-angle-double-left"></i> Voltar
+</a>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+  <i class="far fa-edit"></i> Editar
+</a>
+
+<button class="btn btn-danger" id="btn-delete" data-person-id="@Model.Id">
+  <i class="fas fa-times"></i> Remover
+</button>
+<hr>
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Id): </span>
+  <span>@Model.Id</span>
+</p>
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Name): </span>
+  <span>@Model.Name</span>
+</p>
+@if (Model.Name != Model.Nickname)
+{
+  <p>
+    <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Nickname): </span>
+    <span>@Model.Nickname</span>
+  </p>
+}
+
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.IsTeacher)</span>
+  <span>
+    @{
+      var IsTeacher = Model.IsTeacher ? "Sim" : "Não";
+      <text>@IsTeacher</text>
+    }
+  </span>
+</p>
+
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.IsStudent)</span>
+  <span>
+    @{
+      var isStudent = Model.IsStudent ? "Sim" : "Não";
+      <text>@isStudent</text>
+    }
+  </span>
+</p>
+
+
+@section scripts
+{
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+  <script src="~/js/people/details.js"></script>
+}

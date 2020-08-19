@@ -79,7 +79,7 @@ namespace TemploOnline.Controllers
         var classroom = _context.Classrooms
           .Where(c => c.Id == viewModel.Id)
           .FirstOrDefault();
-          classroom.Name = viewModel.Name;
+        classroom.Name = viewModel.Name;
         _context.SaveChanges();
         return RedirectToAction(nameof(Index));
       }
