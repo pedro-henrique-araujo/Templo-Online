@@ -27,6 +27,51 @@
   <span>@Model.Name</span>
 </p>
 
+@if (Model.Teachers.Any())
+{
+  <p>
+    <span class="font-weight-bold">
+      Lições: 
+    </span>
+  </p>
+  <ul>
+    @foreach (var teacher in Model.Teachers.OrderBy(t => t.Name))
+    {
+      <li>
+        <a
+          asp-action="Details"
+          asp-controller="PeopleClassrooms"
+          asp-route-id="@teacher.Id">
+        <span>@teacher.Name</span>
+
+        </a>
+      </li>
+    }
+  </ul>
+}
+<button data-classroom-id="@Model.Id" class="btn btn-primary" id="btn-add-teacher">
+  <i class="far fa-file"></i> Adicionar Professor
+</button>
+
+<div id="modal-new-teacher" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">Escolha um professor</div>
+      </div>
+      <div class="modal-body">
+        <select class="form-control" id="select-teachers">
+
+        </select>
+      </div>
+      <div class="modal-footer">
+        <button class="btn bg-light">Cancelar</button>
+        <button class="btn btn-primary" id="btn-save-person-classroom">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @section scripts
 {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>

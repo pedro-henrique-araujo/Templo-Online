@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using TemploOnline.Data;
 using TemploOnline.Models.ViewModels;
 using TemploOnline.Models.EntityModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace TemploOnline.Controllers
 {
@@ -49,6 +50,7 @@ namespace TemploOnline.Controllers
       if (id != null)
       {
         var classroom = _context.Classrooms
+          .Include(c => c.PeopleClassrooms)
           .Where(c => c.Id == id)
           .FirstOrDefault();
           if (classroom != null)
@@ -62,6 +64,7 @@ namespace TemploOnline.Controllers
       if (id != null)
       {
         var classroom = _context.Classrooms
+          .Include(c => c.PeopleClassrooms)
           .Where(c => c.Id == id)
           .FirstOrDefault();
         if (classroom != null)

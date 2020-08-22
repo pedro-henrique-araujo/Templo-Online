@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace TemploOnline.Models.EntityModels
@@ -15,5 +16,7 @@ namespace TemploOnline.Models.EntityModels
 
     [Required]
     public bool IsStudent { get; set; }
+
+    public List<PersonClassroom> PeopleClassrooms { get; set; }
   }
 }

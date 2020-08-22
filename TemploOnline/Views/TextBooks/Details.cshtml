@@ -27,14 +27,14 @@
   <span class="font-weight-bold">@Html.DisplayNameFor(m => m.CategoryName): </span>
   <span>@Model.CategoryName</span>
 </p>
-@if (@Model.Lessons.Count() > 0)
+@if (Model.Lessons.Any())
 {
   <p>
     <span class="font-weight-bold">
       Lições:
     </span>
   <ul>
-    @foreach (var lesson in @Model.Lessons.OrderBy(l => l.LessonNumber))
+    @foreach (var lesson in Model.Lessons.OrderBy(l => l.LessonNumber))
     {
       <li>
         <a 
