@@ -18,6 +18,10 @@ namespace TemploOnline.Data
 
     public DbSet<PersonClassroom> PeopleClassrooms { get; set; }
 
+    public DbSet<AttendanceList> AttendancesLists { get; set; }
+
+    public DbSet<Attendance> Attendances { get; set; }
+
     public TemploOnlineContext(DbContextOptions<TemploOnlineContext> options)
       :base(options)
     {

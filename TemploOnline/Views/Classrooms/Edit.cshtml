@@ -12,8 +12,49 @@
     <input type="text" class="form-control" asp-for="@Model.Name">
     <span asp-validation-for="@Model.Name" class="text-danger"></span>
   </div>
+  <div class="form-group">
+    <label>Professores</label>
+    <select name="Teachers" id="Teachers"  multiple="mutiple" class="form-control">
+      @foreach (var teacher in @Model.People.Where(p => p.IsTeacher))
+      {
+        if (teacher.PeopleClassrooms != null)
+        {
+          if (teacher.PeopleClassrooms.Any(pc => pc.ClassroomId == @Model.Id && pc.AsTeacher))
+          {
+            <option selected value="@teacher.Id">@teacher.Nickname</option>
+            continue;
+          }
+        }      
+        <option value="@teacher.Id">@teacher.Nickname</option>        
+      }
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Alunos</label>
+    <select name="Students" id="Students" multiple="multiple" class="form-control">
+      @foreach (var student in @Model.People.Where(p => p.IsStudent))
+      {
+        if (student.PeopleClassrooms != null)
+        {
+          if (student.PeopleClassrooms.Any(pc => pc.ClassroomId == @Model.Id && !pc.AsTeacher))
+          {
+            <option selected value="@student.Id">@student.Nickname</option>
+            continue;
+          }
+        }
+        <option value="@student.Id">@student.Nickname</option>
+      }
+    </select>
+  </div>
   <input type="hidden" asp-for="@Model.Id">
   @Html.AntiForgeryToken()
   <a asp-action="Index" class="btn bg-light"><i class="fas fa-angle-double-left"></i> Cancelar</a>
   <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Salvar</button>
 </form>
+
+@section scripts 
+{
+  <link rel="stylesheet" href="~/lib/select2/css/select2.min.css"/>
+  <script src="~/lib/select2/js/select2.min.js"></script>
+  <script src="~/js/classrooms/select2.js"></script>
+}

@@ -1,0 +1,38 @@
+@model TemploOnline.Models.ViewModels.AttendanceListListingViewModel
+@{
+  var title = "Chamadas";
+  ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+<form method="GET" class="form-inline" asp-action="new">
+  <div class="form-group">
+    <label class="mr-3" >Sala de Aula</label>
+    <select name="classroomId" class="form-control mr-3" asp-items="@Model.Classrooms"></select>
+  </div>
+  <button class="btn btn-primary">
+    <i class="far fa-file"></i> Novo  
+  </button>
+</form>
+<hr>
+@if (!Model.AttendancesLists.Any())
+{
+  <p>Não existem chamadas cadastradas, clique em novo</p>
+}
+else
+{
+  <table class="table table-hover">
+    <tbody>
+      @foreach (var attendanceList in Model.AttendancesLists)
+      {
+        <tr class="row">
+          <td class="col-sm-12">
+            <a asp-action="Details" asp-route-id="@attendanceList.Id">
+              @attendanceList.Created - @attendanceList.Classroom.Name
+            </a>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

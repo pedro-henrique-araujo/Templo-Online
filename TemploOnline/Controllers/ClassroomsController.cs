@@ -4,6 +4,7 @@ using TemploOnline.Data;
 using TemploOnline.Models.ViewModels;
 using TemploOnline.Models.EntityModels;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace TemploOnline.Controllers
 {
@@ -28,7 +29,10 @@ namespace TemploOnline.Controllers
 
     public ActionResult New()
     {
-      return View(new ClassroomViewModel());
+      return View(new ClassroomViewModel() 
+      { 
+        People = _context.People.OrderBy(p => p.Name).ToList() 
+      });
     }
 
     [HttpPost]
@@ -36,9 +40,27 @@ namespace TemploOnline.Controllers
     public ActionResult New(ClassroomViewModel viewModel)
     {
       if (ModelState.IsValid)
-      {
+      {    
         var classroom = new Classroom { Name = viewModel.Name};
         _context.Classrooms.Add(classroom);
+        var teachersIds = Request.Form["Teachers"];
+        foreach (var id in teachersIds)
+          _context.PeopleClassrooms.Add(new PersonClassroom 
+          {
+            Classroom = classroom,
+            PersonId = Convert.ToInt32(id),
+            AsTeacher = true
+          });
+        var studentsIds = Request.Form["Students"];
+        foreach (var id in studentsIds)
+        {
+          _context.PeopleClassrooms.Add(new PersonClassroom 
+          {
+            Classroom = classroom,
+            PersonId = Convert.ToInt32(id),
+            AsTeacher = false
+          });
+        }
         _context.SaveChanges();
         return RedirectToAction(nameof(Index));
       }
@@ -51,10 +73,15 @@ namespace TemploOnline.Controllers
       {
         var classroom = _context.Classrooms
           .Include(c => c.PeopleClassrooms)
+            .ThenInclude(pc => pc.Person)
           .Where(c => c.Id == id)
           .FirstOrDefault();
-          if (classroom != null)
-            return View(new ClassroomViewModel(classroom));
+        if (classroom != null)  
+          return View(new ClassroomViewModel(classroom)
+          {
+            People = classroom.PeopleClassrooms.Select(pc => pc.Person)
+          });
+         
       }
       return RedirectToAction(nameof(Index));
     }
@@ -68,7 +95,10 @@ namespace TemploOnline.Controllers
           .Where(c => c.Id == id)
           .FirstOrDefault();
         if (classroom != null)
-          return View(new ClassroomViewModel(classroom));
+          return View(new ClassroomViewModel(classroom) 
+          {
+            People = _context.People.OrderBy(p => p.Name).ToList()
+          });
       }
       return RedirectToAction(nameof(Index));
     }
@@ -83,6 +113,28 @@ namespace TemploOnline.Controllers
           .Where(c => c.Id == viewModel.Id)
           .FirstOrDefault();
         classroom.Name = viewModel.Name;
+        _context.PeopleClassrooms.RemoveRange(
+          _context.PeopleClassrooms.Where(pc => pc.ClassroomId == classroom.Id)
+        );
+        var teachersIds = Request.Form["Teachers"];
+        foreach (var id in teachersIds)
+          _context.PeopleClassrooms.Add(new PersonClassroom 
+          {
+            Classroom = classroom,
+            PersonId = Convert.ToInt32(id),
+            AsTeacher = true
+          });
+
+          var studentsIds = Request.Form["Students"];
+        foreach (var id in studentsIds)
+        {
+          _context.PeopleClassrooms.Add(new PersonClassroom 
+          {
+            Classroom = classroom,
+            PersonId = Convert.ToInt32(id),
+            AsTeacher = false
+          });
+        }
         _context.SaveChanges();
         return RedirectToAction(nameof(Index));
       }

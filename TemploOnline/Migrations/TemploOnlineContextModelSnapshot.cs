@@ -150,6 +150,56 @@ namespace TemploOnline.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("TemploOnline.Models.EntityModels.Attendance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AttendanceListId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Attended")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AttendanceListId");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Attendances");
+                });
+
+            modelBuilder.Entity("TemploOnline.Models.EntityModels.AttendanceList", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClassroomId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("LessonId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClassroomId");
+
+                    b.HasIndex("LessonId");
+
+                    b.ToTable("AttendancesLists");
+                });
+
             modelBuilder.Entity("TemploOnline.Models.EntityModels.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -405,6 +455,36 @@ namespace TemploOnline.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TemploOnline.Models.EntityModels.Attendance", b =>
+                {
+                    b.HasOne("TemploOnline.Models.EntityModels.AttendanceList", "AttendanceList")
+                        .WithMany("Attendances")
+                        .HasForeignKey("AttendanceListId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TemploOnline.Models.EntityModels.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("TemploOnline.Models.EntityModels.AttendanceList", b =>
+                {
+                    b.HasOne("TemploOnline.Models.EntityModels.Classroom", "Classroom")
+                        .WithMany()
+                        .HasForeignKey("ClassroomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TemploOnline.Models.EntityModels.Lesson", "Lesson")
+                        .WithMany()
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("TemploOnline.Models.EntityModels.Lesson", b =>
                 {
                     b.HasOne("TemploOnline.Models.EntityModels.Textbook", "Textbook")
@@ -417,13 +497,13 @@ namespace TemploOnline.Migrations
             modelBuilder.Entity("TemploOnline.Models.EntityModels.PersonClassroom", b =>
                 {
                     b.HasOne("TemploOnline.Models.EntityModels.Classroom", "Classroom")
-                        .WithMany()
+                        .WithMany("PeopleClassrooms")
                         .HasForeignKey("ClassroomId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("TemploOnline.Models.EntityModels.Person", "Person")
-                        .WithMany()
+                        .WithMany("PeopleClassrooms")
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

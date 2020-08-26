@@ -1,6 +1,6 @@
 @model TemploOnline.Models.ViewModels.ClassroomViewModel
 @{
-  var title = "Detalhes da revista";
+  var title = "Detalhes da sala";
   ViewData["Title"] = title;
 }
 
@@ -27,50 +27,52 @@
   <span>@Model.Name</span>
 </p>
 
-@if (Model.Teachers.Any())
+
+@{
+  var teachers = Model.People
+      .Where(p => p.PeopleClassrooms
+        .Any(pc => pc.AsTeacher))
+      .OrderBy(t => t.Name);
+  var students = Model.People
+      .Where(p => p.PeopleClassrooms
+        .Any(pc => !pc.AsTeacher))
+      .OrderBy(t => t.Name);
+}
+
+@if (teachers.Any())
 {
   <p>
     <span class="font-weight-bold">
-      Lições: 
+      Professores:
     </span>
   </p>
   <ul>
-    @foreach (var teacher in Model.Teachers.OrderBy(t => t.Name))
+    @foreach (var teacher in teachers)
     {
       <li>
-        <a
-          asp-action="Details"
-          asp-controller="PeopleClassrooms"
-          asp-route-id="@teacher.Id">
-        <span>@teacher.Name</span>
-
-        </a>
+        <span>@teacher.Nickname</span>
       </li>
     }
   </ul>
 }
-<button data-classroom-id="@Model.Id" class="btn btn-primary" id="btn-add-teacher">
-  <i class="far fa-file"></i> Adicionar Professor
-</button>
 
-<div id="modal-new-teacher" class="modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="modal-title">Escolha um professor</div>
-      </div>
-      <div class="modal-body">
-        <select class="form-control" id="select-teachers">
+@if (students.Any())
+{
+  <p>
+    <span class="font-weight-bold">
+      Alunos:
+    </span>
+  </p>
+  <ul>
+    @foreach(var student in students)
+    {
+      <li>
+        <span>@student.Nickname</span>
+      </li>
+    }
+  </ul>
+}
 
-        </select>
-      </div>
-      <div class="modal-footer">
-        <button class="btn bg-light">Cancelar</button>
-        <button class="btn btn-primary" id="btn-save-person-classroom">Salvar</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 @section scripts
 {

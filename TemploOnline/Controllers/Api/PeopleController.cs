@@ -35,21 +35,5 @@ namespace TemploOnline.Controllers.Api
         "Não foi possível encontrar um irmão com este id"
       ));
     }
-
-    [HttpGet("{asTeacher}/{classroomId}")]
-    public ActionResult GetPeople(bool asTeacher, int classroomId)
-    {      
-      var people = _context.People
-        .Where(p => !p.PeopleClassrooms.Any(pc => pc.ClassroomId == classroomId));
-      if (asTeacher)
-        return Ok(people.Where(p => p.IsTeacher).ToList());
-      return Ok(people.Where(p => p.IsStudent).ToList());
-    }
-
-    [HttpPost]
-    public ActionResult CreatePersonClassroom([FromBody]PersonClassroom personClassroom)
-    {      
-      return Ok();
-    }
   }
 }

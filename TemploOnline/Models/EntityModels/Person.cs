@@ -18,5 +18,6 @@ namespace TemploOnline.Models.EntityModels
     public bool IsStudent { get; set; }
 
     public List<PersonClassroom> PeopleClassrooms { get; set; }
+    
   }
 }
