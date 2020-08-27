@@ -83,3 +83,9 @@ body {
 .container {
   width: 90%;
 }
+
+/* big check */
+.big-check {
+  width: 30px;
+  height: 30px;
+}

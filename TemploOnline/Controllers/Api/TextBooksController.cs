@@ -9,7 +9,7 @@ namespace TemploOnline.Controllers.Api
   [ApiController]
   public class TextBooksController : ControllerBase
   {
-    public TemploOnlineContext _context;
+    private TemploOnlineContext _context;
 
     public TextBooksController(TemploOnlineContext context)
     {

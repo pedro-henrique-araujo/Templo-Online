@@ -14457,6 +14457,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\AttendancesLists\\Details.cshtml",
+      "TargetPath": "Views\\AttendancesLists\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Classrooms\\Index.cshtml",
       "TargetPath": "Views\\Classrooms\\Index.cshtml",
       "FileKind": "mvc"
@@ -14499,6 +14504,11 @@
     {
       "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\TextBooks\\Edit.cshtml",
       "TargetPath": "Views\\TextBooks\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\AttendancesLists\\Edit.cshtml",
+      "TargetPath": "Views\\AttendancesLists\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

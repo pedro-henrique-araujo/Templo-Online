@@ -27,8 +27,8 @@ else
       {
         <tr class="row">
           <td class="col-sm-12">
-            <a asp-action="Details" asp-route-id="@attendanceList.Id">
-              @attendanceList.Created - @attendanceList.Classroom.Name
+            <a asp-action="Details" asp-route-id="@attendanceList.Id" class="btn col-sm-12 text-left">
+              @attendanceList.Created | @attendanceList.Classroom.Name | @attendanceList.Lesson.Name
             </a>
           </td>
         </tr>

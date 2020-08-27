@@ -11,5 +11,7 @@ namespace TemploOnline.Models.EntityModels
     public Person Person { get; set; }
 
     public bool Attended { get; set; }
+
+    public bool AsTeacher { get; set; }
   }
 }

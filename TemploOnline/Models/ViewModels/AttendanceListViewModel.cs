@@ -14,12 +14,16 @@ namespace TemploOnline.Models.ViewModels
 
   public class AttendanceListViewModel
   {
-    
+    public int Id { get; set; }
     public int ClassroomId { get; set; }
+
+    public Classroom Classroom { get; set; }     
 
     public List<SelectListItem> Classrooms { get; set; }
 
     public int LessonId { get; set; }
+
+    public Lesson Lesson { get; set; }
 
     public List<SelectListItem> Lessons { get; set; }
 
@@ -35,8 +39,11 @@ namespace TemploOnline.Models.ViewModels
 
     public AttendanceListViewModel(AttendanceList attendanceList)
     {
+      Id = attendanceList.Id;
       LessonId = attendanceList.LessonId;
+      Lesson = attendanceList.Lesson;
       ClassroomId = attendanceList.LessonId;
+      Classroom = attendanceList.Classroom;
       Created = attendanceList.Created;
     }
   }

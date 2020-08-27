@@ -1,0 +1,93 @@
+@model TemploOnline.Models.ViewModels.AttendanceListViewModel
+@{
+  var title = "Detalhes da chamada";
+  ViewData["Title"] = title;
+}
+<h1>@title</h1>
+<a asp-action="Index" class="btn bg-light">
+  <i class="fas fa-angle-double-left"></i> Voltar
+</a>
+
+<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+  <i class="far fa-edit"></i> Editar
+</a>
+
+<button class="btn btn-danger" id="btn-delete" data-attendanceList-id="@Model.Id">
+  <i class="fas fa-times"></i> Remover
+</button>
+
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Id): </span>
+  <span>@Model.Id</span>
+</p>
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Created): </span>
+  <span>@Model.Created</span>
+</p>
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Classroom): </span>
+  <span>@Model.Classroom.Name</span>
+</p>
+
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Lesson): </span>
+  <span>@Model.Lesson.Name</span>
+</p>
+<div>
+  <span class="text-weight-bold">Legenda: </span>
+  <ul>
+    <li class="text-success">Presente</li>
+    <li class="text-danger">Faltou</li>
+  </ul>
+</div>
+
+@if (Model.TeachersAttendances.Any())
+{
+  <h3>Professores</h3>
+  <ul>
+    @foreach (var attendance in Model.TeachersAttendances)
+    {
+      if (attendance.Attended)
+      {
+        <li class="text-success">
+          @attendance.Person.Name
+        </li>
+      }
+      else
+      {
+        <li class="text-danger">
+          @attendance.Person.Name
+        </li>
+      }
+    }
+  </ul>
+}
+
+@if (Model.StudentsAttendances.Any())
+{
+  <h3>Alunos</h3>
+  <ul>   
+    @foreach (var attendance in Model.StudentsAttendances)
+    {
+      if (attendance.Attended)
+      {
+        <li class="text-success">
+          @attendance.Person.Name
+        </li>
+      }
+      else
+      {
+        <li class="text-danger">
+          @attendance.Person.Name
+        </li>
+      }
+     
+    }
+  </ul>
+}
+
+@section scripts
+{
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+  <script src="~/js/attendancesLists/details.js"></script>
+}
