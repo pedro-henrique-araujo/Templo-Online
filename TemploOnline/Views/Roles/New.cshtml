@@ -1,0 +1,20 @@
+@model TemploOnline.Models.ViewModels.RoleViewModel
+@{
+  var title = "Nova permissão";
+  ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+<hr>
+
+<form method="post" asp-action="new">
+  <div class="form-group">
+    <label asp-for="@Model.Name"></label>
+    <input asp-for="@Model.Name" type="text" class="form-control">
+    <span asp-validation-for="@Model.Name" class="text-danger"></span>
+  </div>
+  <input asp-for="@Model.Id" type="hidden">
+  @Html.AntiForgeryToken()
+  <a asp-action="Index" class="btn bg-light"><i class="fas fa-angle-double-left"></i> Cancelar</a>
+  <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Salvar</button>
+</form>

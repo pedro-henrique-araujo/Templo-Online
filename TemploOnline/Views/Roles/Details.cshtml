@@ -1,0 +1,31 @@
+@model TemploOnline.Models.ViewModels.RoleViewModel
+@{
+  var title = "Detalhes da permissão";
+  ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+<a class="btn bg-light" asp-action="Index">
+  <i class="fas fa-angle-dougle-left"></i> Voltar
+</a>
+
+<button class="btn btn-danger" id="btn-delete" data-role-id="@Model.Id">
+  <i class="fas fa-times"></i> Remover
+</button>
+<hr>
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Id): </span>
+  <span>@Model.Id</span>
+</p>
+
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Name): </span>
+  <span>@Model.Name</span>
+</p>
+
+
+@section scripts
+{
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+  <script src="~/js/roles/details.js"></script>
+}

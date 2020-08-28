@@ -14392,8 +14392,18 @@
   "RootNamespace": "TemploOnline",
   "Documents": [
     {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Roles\\Index.cshtml",
+      "TargetPath": "Views\\Roles\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Roles\\Details.cshtml",
+      "TargetPath": "Views\\Roles\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14414,6 +14424,11 @@
     {
       "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\AttendancesLists\\Index.cshtml",
       "TargetPath": "Views\\AttendancesLists\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Roles\\New.cshtml",
+      "TargetPath": "Views\\Roles\\New.cshtml",
       "FileKind": "mvc"
     },
     {

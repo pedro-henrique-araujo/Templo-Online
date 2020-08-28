@@ -7,7 +7,7 @@
 <h1>@title</h1>
 <a asp-action="New" class="btn btn-primary"><i class="far fa-file"></i> Novo</a>
 <hr>
-@if (@Model.People.Count() == 0)
+@if (!Model.People.Any())
 {
   <p>Não existem irmãos cadastrados, clique em novo</p>
 }

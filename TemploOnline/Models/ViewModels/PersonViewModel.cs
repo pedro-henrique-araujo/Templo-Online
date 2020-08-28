@@ -11,7 +11,6 @@ namespace TemploOnline.Models.ViewModels
 
   public class PersonViewModel : NomeableEntityViewModel
   {
-
     [Display(Name = "Conhecido(a) como")]
     public string Nickname { get; set; }
 

@@ -96,3 +96,14 @@ C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\ne
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\AttendancesLists\New.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\AttendancesLists\Details.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\AttendancesLists\Edit.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\bin\Debug\netcoreapp3.1\TemploOnline.StaticWebAssets.xml
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V3.dll
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.Views.V4.dll
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.UI.dll
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Embedded.dll
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\TemploOnline.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Index.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Roles\New.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Details.cshtml.g.cs

@@ -18,6 +18,12 @@
     <span asp-validation-for="@Model.Nickname" class="text-danger"></span>
   </div>
 
+  <div class="form-group">
+    <label asp-for="@Model.User.UserName">Login</label>
+    <input type="text" class="form-control" asp-for="@Model.User.UserName" />
+    <span asp-validation-for="@Model.User.UserName" class="text-danger"></span>
+  </div>
+
   <div class="form-check">
     <input type="checkbox" class="form-check-input" asp-for="@Model.IsTeacher">
     <label asp-for="@Model.IsTeacher" class="form-check-label"></label>
@@ -30,6 +36,6 @@
 
   <input type="hidden" asp-for="@Model.Id">
   @Html.AntiForgeryToken()
-  <a asp-action="Index" class="btn bg-light"><div class="fas fa-angle-double-left"></div> Cancelar</a>
+  <a asp-action="Index" class="btn bg-light"><i class="fas fa-angle-double-left"></i> Cancelar</a>
   <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Salvar</button>
 </form>

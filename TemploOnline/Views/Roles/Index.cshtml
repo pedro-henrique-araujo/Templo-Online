@@ -1,0 +1,29 @@
+@model TemploOnline.Models.ViewModels.RoleListingViewModel
+@{
+  var title = "Permissões de usuário";
+  ViewData["Title"] = title;
+}
+<h1>@title</h1>
+<a asp-action="New" class="btn btn-primary"><i class="far fa-file"></i> Novo</a>
+<hr>
+@if (!Model.Roles.Any())
+{
+  <p>Não existem permissões cadastradas, clique em novo</p>
+}
+else
+{
+  <table class="table table-hover">
+    <tbody>
+      @foreach (var role in Model.Roles)
+      {
+        <tr class="row">
+          <td class="col-sm-12">
+            <a asp-action="Details" asp-route-id="@role.Id" class="btn col-sm-12 text-left">
+              @role.Name
+            </a>            
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+}

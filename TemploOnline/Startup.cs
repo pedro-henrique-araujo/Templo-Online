@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TemploOnline.Data;
+using TemploOnline.Models.EntityModels;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 
 namespace TemploOnline
 {
@@ -29,7 +32,18 @@ namespace TemploOnline
 
             services.AddDbContext<TemploOnlineContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("TemploOnlineContext")));
-            services.AddCors();
+            services.AddDefaultIdentity<User>(options => 
+                    {
+                        options.Password.RequireUppercase = false;
+                        options.Password.RequireNonAlphanumeric = false;
+                        options.Password.RequiredLength = 6;
+                        options.Password.RequireUppercase = false;
+                        options.Password.RequireDigit = false;
+                        options.Password.RequireLowercase = false;
+                    }                    
+                )
+                .AddRoles<IdentityRole>()
+                .AddEntityFrameworkStores<TemploOnlineContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
