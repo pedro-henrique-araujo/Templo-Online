@@ -1,4 +1,5 @@
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TemploOnline.Data;
 using TemploOnline.Models.EntityModels;
@@ -6,6 +7,7 @@ using TemploOnline.Models.ViewModels;
 
 namespace TemploOnline.Controllers
 {
+  [Authorize(Roles = "Aluno, Professor, Admin, Dev")]
   public class CategoriesController : Controller
   {
     private TemploOnlineContext _context;

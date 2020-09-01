@@ -89,3 +89,61 @@ body {
   width: 30px;
   height: 30px;
 }
+
+/* Login */
+.login-container {
+  margin: 50px auto;
+}
+
+.login-bar {
+  height: 5px;
+}
+
+.login-body {
+  background: url("../images/login/login-img.jpg");
+  background-position: 50% 50%;
+}
+
+.login-form {
+  background-color: white;
+  max-width: 95%;
+}
+
+/* cards */
+.classroom-card .card-header {
+  background-image: url("../images/classrooms/default.jpg");
+  background-position: 50% 50%;
+  height: 100px;
+}
+
+.classroom-card {
+  padding: 0;
+  cursor: pointer;
+}
+
+.classroom-card:hover {
+  box-shadow: 0px 0px 10px rgb(252, 241, 143);
+}
+
+.classroom-details-card {
+  padding: 0;
+}
+
+.classroom-details-card .card-header {
+  background-image: url("../images/classrooms/default.jpg");
+  background-size: 100% auto;
+  background-position: 50%;
+  height: 300px;
+}
+
+.people-list {
+  min-height: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  
+  .classroom-details-card .card-header {
+    background-size: auto 100%;
+  }
+}
+

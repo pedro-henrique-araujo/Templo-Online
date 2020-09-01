@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,7 @@ using TemploOnline.Models.ViewModels;
 
 namespace TemploOnline.Controllers
 {
+  [Authorize(Roles = "Aluno, Professor, Admin, Dev")]
   public class RolesController : Controller
   {
     private TemploOnlineContext _context;

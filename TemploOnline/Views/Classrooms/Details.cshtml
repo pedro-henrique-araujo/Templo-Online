@@ -16,18 +16,6 @@
 <button class="btn btn-danger" id="btn-delete" data-classroom-id="@Model.Id">
   <i class="fas fa-times"></i> Remover
 </button>
-<hr>
-<p>
-  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Id): </span>
-  <span>@Model.Id</span>
-</p>
-
-<p>
-  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Name): </span>
-  <span>@Model.Name</span>
-</p>
-
-
 @{
   var teachers = Model.People
       .Where(p => p.PeopleClassrooms
@@ -39,39 +27,48 @@
       .OrderBy(t => t.Name);
 }
 
-@if (teachers.Any())
-{
-  <p>
-    <span class="font-weight-bold">
-      Professores:
-    </span>
-  </p>
-  <ul>
-    @foreach (var teacher in teachers)
-    {
-      <li>
-        <span>@teacher.Nickname</span>
-      </li>
-    }
-  </ul>
-}
-
-@if (students.Any())
-{
-  <p>
-    <span class="font-weight-bold">
-      Alunos:
-    </span>
-  </p>
-  <ul>
-    @foreach(var student in students)
-    {
-      <li>
-        <span>@student.Nickname</span>
-      </li>
-    }
-  </ul>
-}
+<div class="row my-3">
+  <div class="card rounded classroom-details-card col-12">
+    <div class="card-header">
+      <h1 class="text-white">@Model.Name</h1>
+    </div> 
+    <div class="card-body">
+      <a asp-action="New" asp-controller="AttendancesLists" asp-route-classroomId="@Model.Id">
+        <i class="fas fa-plus"></i> Chamada
+      </a>
+      <h2>Professores</h2>
+      <hr/>
+      <div class="people-list">    
+        @if (teachers.Any())
+        {        
+          @foreach (var teacher in teachers)
+          {
+            <p>@teacher.Nickname</p>
+          }
+        }
+        else
+        {   
+          <h3 class="text-muted">Esta sala de aula ainda não possui professores</h3>
+        }
+      </div>
+      <h2>Alunos</h2>
+      <hr/>
+      <div class="people-list">      
+        @if (students.Any())
+        { 
+          @foreach(var student in students)
+          {
+            <p>@student.Nickname</p>
+          }
+        }
+        else 
+        {
+          <h3 class="text-muted">Esta sala de aula ainda não possui alunos</h3>
+        }
+      </div>
+    </div>
+  </div>
+</div>
 
 
 @section scripts

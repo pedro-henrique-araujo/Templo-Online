@@ -5,26 +5,31 @@
 }
 
 <h1>@title</h1>
-<a asp-action="New" class="btn btn-primary"><i class="far fa-file"></i> Novo</a>
 <hr>
-@if (@Model.Classrooms.Count() == 0)
+<div class="row">
+  @foreach (var classroom in Model.Classrooms)
+  {
+    <div 
+      data-classroom-id="@classroom.Id" 
+      class="card col-sm-12 col-md-3 mx-1 my-1 classroom-card">
+      <div class="card-header"></div>
+      <div class="card-body">
+        <h5 class="card-title"> @classroom.Name</h5>
+      </div>                     
+    </div>
+  } 
+  <div class="col-sm-12 col-md-3 mt-5">
+    <a asp-action="New" class="btn rounded-circle bg-light"><i class="fas fa-plus display-4"></i></a>
+  </div>
+</div>
+
+@section scripts
 {
-  <p>Não existem salas de aula cadastradas, clique em novo</p>
-}
-else
-{
-  <table class="table table-hover">
-    <tbody>
-      @foreach (var classroom in Model.Classrooms)
-      {
-        <tr class="row">
-          <td class="col-sm-12">
-            <a asp-action="Details" asp-route-id="@classroom.Id" class="btn col-sm-12 text-left">
-              @classroom.Name
-            </a>
-          </td>
-        </tr>
-      }
-    </tbody>
-  </table>
+  <script>
+    $(document).ready(function () {
+      $(".classroom-card").click(function () {
+        $(location).attr("href", "/Classrooms/Details/" + $(this).attr("data-classroom-id"))
+      })
+    })
+  </script>
 }

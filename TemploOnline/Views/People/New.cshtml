@@ -8,6 +8,11 @@
 <hr>
 <form method="post" asp-action="new">
   <div class="form-group">
+    <label asp-for="@Model.RoleId"></label>
+    <select type="text" asp-for="@Model.RoleId" asp-items="@Model.Roles" class="form-control"></select>
+    <span asp-validation-for="@Model.RoleId" class="text-danger"></span>
+  </div>
+  <div class="form-group">
     <label asp-for="@Model.Name"></label>
     <input type="text" asp-for="@Model.Name" class="form-control">
     <span asp-validation-for="@Model.Name" class="text-danger"></span>

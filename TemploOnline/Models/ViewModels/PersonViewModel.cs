@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using TemploOnline.Models.EntityModels;
 
 namespace TemploOnline.Models.ViewModels
@@ -23,6 +25,10 @@ namespace TemploOnline.Models.ViewModels
     [Required]
     [Display(Name = "É aluno?")]
     public bool IsStudent { get; set; }
+
+    public IEnumerable<SelectListItem> Roles { get; set; }
+
+    public string RoleId { get; set; }
 
     public PersonViewModel()
       :base()

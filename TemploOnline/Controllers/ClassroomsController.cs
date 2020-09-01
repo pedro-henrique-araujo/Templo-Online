@@ -5,9 +5,11 @@ using TemploOnline.Models.ViewModels;
 using TemploOnline.Models.EntityModels;
 using Microsoft.EntityFrameworkCore;
 using System;
+using Microsoft.AspNetCore.Authorization;
 
 namespace TemploOnline.Controllers
 {
+  [Authorize(Roles = "Aluno, Professor, Admin, Dev")]
   public class ClassroomsController : Controller
   {
     private TemploOnlineContext _context;

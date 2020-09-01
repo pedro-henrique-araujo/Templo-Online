@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using TemploOnline.Models.ViewModels;
 
 namespace TemploOnline.Controllers
 {
+  [Authorize(Roles = "Aluno, Professor, Admin, Dev")]
   public class AttendancesListsController : Controller
   {
     public TemploOnlineContext _context { get; set; }

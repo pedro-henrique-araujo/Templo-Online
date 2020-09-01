@@ -107,3 +107,5 @@ C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\ne
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Index.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Roles\New.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Details.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Account\Index.cshtml.g.cs
+C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_AccountLayout.cshtml.g.cs
