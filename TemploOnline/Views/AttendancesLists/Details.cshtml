@@ -1,20 +1,23 @@
 @model TemploOnline.Models.ViewModels.AttendanceListViewModel
+@using TemploOnline.Controllers.IdentityHelpers
 @{
   var title = "Detalhes da chamada";
   ViewData["Title"] = title;
 }
 <h1>@title</h1>
-<a asp-action="Index" class="btn bg-light">
+<a asp-action="Details" asp-controller="AttendancesLists" asp-route-id="@Model.ClassroomId" class="btn bg-light">
   <i class="fas fa-angle-double-left"></i> Voltar
 </a>
+@if (User.IsInRole(Roles.Professor) || User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Dev))
+{
+  <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+    <i class="far fa-edit"></i> Editar
+  </a>
 
-<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
-  <i class="far fa-edit"></i> Editar
-</a>
-
-<button class="btn btn-danger" id="btn-delete" data-attendanceList-id="@Model.Id">
-  <i class="fas fa-times"></i> Remover
-</button>
+  <button class="btn btn-danger" id="btn-delete" data-attendanceList-id="@Model.Id">
+    <i class="fas fa-times"></i> Remover
+  </button>
+}
 
 <p>
   <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Id): </span>
@@ -22,7 +25,7 @@
 </p>
 <p>
   <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Created): </span>
-  <span>@Model.Created</span>
+  <span>@Model.Created.ToString("dd/MM/yyyy - HH:mm")</span>
 </p>
 <p>
   <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Classroom): </span>

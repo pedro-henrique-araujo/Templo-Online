@@ -28,6 +28,7 @@ namespace TemploOnline.Models.ViewModels
 
     public IEnumerable<SelectListItem> Roles { get; set; }
 
+    [Display(Name = "Permissões")]
     public string RoleId { get; set; }
 
     public PersonViewModel()

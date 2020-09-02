@@ -6,6 +6,8 @@ using TemploOnline.Models.EntityModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.AspNetCore.Authorization;
+using TemploOnline.Controllers.IdentityHelpers;
+using System.Collections.Generic;
 
 namespace TemploOnline.Controllers
 {
@@ -20,15 +22,31 @@ namespace TemploOnline.Controllers
     }
 
     public ActionResult Index()
-    {
-      var viewModel = new ClassroomListingViewModel
+    {      
+      var classrooms = new List<Classroom>();
+      if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Dev))
       {
-        Classrooms = _context.Classrooms.OrderBy(c => c.Name).ToList()
+        classrooms = _context.Classrooms.OrderBy(c => c.Name).ToList();        
+      } 
+      if (User.IsInRole(Roles.Professor) || User.IsInRole(Roles.Aluno))
+      {
+        var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
+        classrooms = _context.PeopleClassrooms
+          .Where(pc => pc.Person.User.Id == user.Id)
+          .Select(pc => _context.Classrooms.Find(pc.Classroom.Id))
+          .Include(c => c.PeopleClassrooms)
+          .ToList();
+      }
+
+      var viewModel = new ClassroomListingViewModel 
+      { 
+        Classrooms = classrooms
       };
 
       return View(viewModel);
     }
 
+     [Authorize(Roles = "Admin, Dev")]
     public ActionResult New()
     {
       return View(new ClassroomViewModel() 
@@ -37,6 +55,7 @@ namespace TemploOnline.Controllers
       });
     }
 
+     [Authorize(Roles = "Admin, Dev")]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult New(ClassroomViewModel viewModel)
@@ -76,18 +95,19 @@ namespace TemploOnline.Controllers
         var classroom = _context.Classrooms
           .Include(c => c.PeopleClassrooms)
             .ThenInclude(pc => pc.Person)
+          .Include(c => c.AttendancesLists)
           .Where(c => c.Id == id)
           .FirstOrDefault();
         if (classroom != null)  
           return View(new ClassroomViewModel(classroom)
           {
-            People = classroom.PeopleClassrooms.Select(pc => pc.Person)
-          });
-         
+            People = classroom.PeopleClassrooms.Select(pc => pc.Person),
+            AttendancesLists = classroom.AttendancesLists
+          });         
       }
       return RedirectToAction(nameof(Index));
     }
-
+     [Authorize(Roles = "Admin, Dev")]
     public ActionResult Edit(int? id)
     {
       if (id != null)
@@ -105,6 +125,7 @@ namespace TemploOnline.Controllers
       return RedirectToAction(nameof(Index));
     }
 
+    [Authorize(Roles = "Admin, Dev")]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Edit(ClassroomViewModel viewModel)

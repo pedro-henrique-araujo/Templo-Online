@@ -1,4 +1,5 @@
 @model TemploOnline.Models.ViewModels.ClassroomListingViewModel
+@using TemploOnline.Controllers.IdentityHelpers
 @{
   var title = "Salas de aula";
   ViewData["Title"] = title;
@@ -15,12 +16,19 @@
       <div class="card-header"></div>
       <div class="card-body">
         <h5 class="card-title"> @classroom.Name</h5>
+        <div class="text-muted">
+            <p>Professores: @classroom.PeopleClassrooms.Where(pc => pc.AsTeacher).Count()</p>
+            <p>Alunos: @classroom.PeopleClassrooms.Where(pc => !pc.AsTeacher).Count()</p>
+          </div>
       </div>                     
     </div>
   } 
-  <div class="col-sm-12 col-md-3 mt-5">
-    <a asp-action="New" class="btn rounded-circle bg-light"><i class="fas fa-plus display-4"></i></a>
-  </div>
+  @if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Dev))
+  {
+    <div class="col-sm-12 col-md-3 mt-5">
+      <a asp-action="New" class="btn rounded-circle bg-light"><i class="fas fa-plus display-4"></i></a>
+    </div>
+  }  
 </div>
 
 @section scripts

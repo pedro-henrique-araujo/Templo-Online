@@ -10,7 +10,7 @@ using TemploOnline.Models.ViewModels;
 
 namespace TemploOnline.Controllers
 {
-  [Authorize(Roles = "Aluno, Professor, Admin, Dev")]
+  [Authorize(Roles = "Admin, Dev")]
   public class LessonsController : Controller
   {
     private TemploOnlineContext _context;

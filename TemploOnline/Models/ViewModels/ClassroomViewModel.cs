@@ -13,6 +13,8 @@ namespace TemploOnline.Models.ViewModels
   {
 
     public IEnumerable<Person> People { get; set; }
+    public IEnumerable<AttendanceList> AttendancesLists { get; set; }
+
     public ClassroomViewModel()
     {
         
@@ -20,6 +22,7 @@ namespace TemploOnline.Models.ViewModels
     public ClassroomViewModel(Classroom classroom)
       :base(classroom)
     {
+
     }
   }
 }

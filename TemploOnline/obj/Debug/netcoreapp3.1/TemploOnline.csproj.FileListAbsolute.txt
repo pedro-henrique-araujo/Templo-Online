@@ -92,7 +92,6 @@ C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\ne
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\People\Details.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\People\Edit.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\bin\Debug\netcoreapp3.1\libman.json
-C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\AttendancesLists\Index.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\AttendancesLists\New.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\AttendancesLists\Details.cshtml.g.cs
 C:\Users\Pedro Henrique\Documents\github\Templo-Online\TemploOnline\obj\Debug\netcoreapp3.1\Razor\Views\AttendancesLists\Edit.cshtml.g.cs

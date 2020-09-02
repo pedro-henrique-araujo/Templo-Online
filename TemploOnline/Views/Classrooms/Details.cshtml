@@ -1,4 +1,5 @@
 @model TemploOnline.Models.ViewModels.ClassroomViewModel
+@using TemploOnline.Controllers.IdentityHelpers
 @{
   var title = "Detalhes da sala";
   ViewData["Title"] = title;
@@ -30,42 +31,112 @@
 <div class="row my-3">
   <div class="card rounded classroom-details-card col-12">
     <div class="card-header">
-      <h1 class="text-white">@Model.Name</h1>
+      <h1 class="classroom-title">@Model.Name</h1>
     </div> 
     <div class="card-body">
-      <a asp-action="New" asp-controller="AttendancesLists" asp-route-classroomId="@Model.Id">
-        <i class="fas fa-plus"></i> Chamada
-      </a>
-      <h2>Professores</h2>
-      <hr/>
-      <div class="people-list">    
-        @if (teachers.Any())
-        {        
-          @foreach (var teacher in teachers)
+
+      <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a 
+            href="#nav-attendances" 
+            class="nav-item nav-link active" 
+            id="nav-attendances-tab" 
+            data-toggle="tab" 
+            role="tab" 
+            aria-controls="nav-attendances" 
+            aria-selected="true">
+            Chamadas
+          </a>
+          <a 
+            class="nav-item nav-link" 
+            id="nav-people-tab" 
+            href="#nav-people" 
+            role="tab" 
+            data-toggle="tab" 
+            aria-controls="nav-people" 
+            aria-selected="false">
+            Pessoas
+          </a>
+        </div>
+      </nav>
+
+      <div class="tab-content" id="nav-tabContent">
+        <div 
+          class="tab-pane fade show active mt-3 mb-5" 
+          id="nav-attendances" 
+          role="tabpanel" 
+          aria-labelledby="nav-attendances-tab">
+          @if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Professor) || User.IsInRole(Roles.Dev))
           {
-            <p>@teacher.Nickname</p>
-          }
-        }
-        else
-        {   
-          <h3 class="text-muted">Esta sala de aula ainda não possui professores</h3>
-        }
+            <a 
+              asp-action="New" 
+              asp-controller="AttendancesLists" 
+              asp-route-classroomId="@Model.Id" 
+              class="btn btn-outline-primary mb-3">
+            <i class="far fa-file"></i> Novo
+            </a>
+          }          
+
+          <table class="table table-hover">
+            <tbody>
+              @foreach (var attendanceList in Model.AttendancesLists
+                .OrderByDescending(a => a.Created))
+              {
+                <tr class="row">
+                  <td class="col-sm-12">
+                    <a
+                      class="btn col-sm-12 text-left"
+                      asp-controller="AttendancesLists" 
+                      asp-action="Details" 
+                      asp-route-id="@attendanceList.Id">
+                      @attendanceList.Created.ToString("dd/MM/yyyy - HH:mm")
+                    </a>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+       </div>
+        <div 
+          class="tab-pane fade mt-3 mb-5" 
+          id="nav-people" 
+          role="tabpanel" 
+          aria-labelledby="nav-people-tab">
+
+          <h2>Professores</h2>
+          <hr/>
+          <div class="people-list">    
+            @if (teachers.Any())
+            {        
+              @foreach (var teacher in teachers)
+              {
+                <p>@teacher.Nickname</p>
+              }
+            }
+            else
+            {   
+              <h3 class="text-muted">Esta sala de aula ainda não possui professores</h3>
+            }
+          </div>
+          <h2>Alunos</h2>
+          <hr/>
+          <div class="people-list">      
+            @if (students.Any())
+            { 
+              @foreach(var student in students)
+              {
+                <p>@student.Nickname</p>
+              }
+            }
+            else 
+            {
+              <h3 class="text-muted">Esta sala de aula ainda não possui alunos</h3>
+            }
+          </div>
+        </div>
       </div>
-      <h2>Alunos</h2>
-      <hr/>
-      <div class="people-list">      
-        @if (students.Any())
-        { 
-          @foreach(var student in students)
-          {
-            <p>@student.Nickname</p>
-          }
-        }
-        else 
-        {
-          <h3 class="text-muted">Esta sala de aula ainda não possui alunos</h3>
-        }
-      </div>
+
+     
     </div>
   </div>
 </div>
