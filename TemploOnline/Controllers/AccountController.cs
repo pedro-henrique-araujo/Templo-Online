@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -40,10 +41,17 @@ namespace TemploOnline.Controllers
             else
               return RedirectToAction("Index", "Home");
           }
+          else
+          {
+            ViewData["PasswordValidation"] = "Senha incorreta";
+          }
         }
-        
+        else
+        {
+          ViewData["UserValidation"] = "Usuário inexistente";
+        }
       }
-      return View(viewModel);
+      return View(nameof(Index), viewModel);
     }
 
     public async Task<ActionResult> Logout()

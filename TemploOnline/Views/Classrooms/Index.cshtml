@@ -16,10 +16,6 @@
       <div class="card-header"></div>
       <div class="card-body">
         <h5 class="card-title"> @classroom.Name</h5>
-        <div class="text-muted">
-            <p>Professores: @classroom.PeopleClassrooms.Where(pc => pc.AsTeacher).Count()</p>
-            <p>Alunos: @classroom.PeopleClassrooms.Where(pc => !pc.AsTeacher).Count()</p>
-          </div>
       </div>                     
     </div>
   } 

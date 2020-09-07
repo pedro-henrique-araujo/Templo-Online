@@ -14,6 +14,7 @@ namespace TemploOnline.Models.ViewModels
   public class PersonViewModel : NomeableEntityViewModel
   {
     [Display(Name = "Conhecido(a) como")]
+    [Required(ErrorMessage = "Campo Obrigatório")]
     public string Nickname { get; set; }
 
     public User User { get; set; }

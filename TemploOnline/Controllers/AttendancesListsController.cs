@@ -20,7 +20,7 @@ namespace TemploOnline.Controllers
     {
       _context = context;
     }
-    [Authorize(Roles = "Admin, Dev")]
+    [Authorize(Roles = "Admin, Dev, Professor")]
     public ActionResult New(int classroomId)
     {
       var peopleClassrooms = _context.PeopleClassrooms
@@ -64,7 +64,7 @@ namespace TemploOnline.Controllers
       });
     }
 
-    [Authorize(Roles = "Admin, Dev")]
+    [Authorize(Roles = "Admin, Dev, Professor")]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult New(AttendanceListViewModel viewModel)
@@ -124,7 +124,7 @@ namespace TemploOnline.Controllers
       return RedirectToAction("Index", "Classrooms");
     }
 
-    [Authorize(Roles = "Admin, Dev")]
+    [Authorize(Roles = "Admin, Dev, Professor")]
     public ActionResult Edit(int? id)
     {
       if (id != null)
@@ -158,7 +158,7 @@ namespace TemploOnline.Controllers
      return RedirectToAction("Index", "Classrooms");
     }    
 
-    [Authorize(Roles = "Admin, Dev")]
+    [Authorize(Roles = "Admin, Dev, Professor")]
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Edit(AttendanceListViewModel viewModel)

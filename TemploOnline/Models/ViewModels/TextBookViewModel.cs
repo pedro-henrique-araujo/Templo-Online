@@ -17,6 +17,7 @@ namespace TemploOnline.Models.ViewModels
     public int CategoryId { get; set; }
 
     [Display(Name = "Categoria")]
+    [Required(ErrorMessage = "Campo Obrigatório")]
     public string CategoryName { get; set; }
 
     public List<Lesson> Lessons { get; set; } = new List<Lesson>();

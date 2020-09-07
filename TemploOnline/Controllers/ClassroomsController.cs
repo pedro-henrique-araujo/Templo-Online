@@ -31,11 +31,11 @@ namespace TemploOnline.Controllers
       if (User.IsInRole(Roles.Professor) || User.IsInRole(Roles.Aluno))
       {
         var user = _context.Users.FirstOrDefault(u => u.UserName == User.Identity.Name);
-        classrooms = _context.PeopleClassrooms
-          .Where(pc => pc.Person.User.Id == user.Id)
-          .Select(pc => _context.Classrooms.Find(pc.Classroom.Id))
+        classrooms = _context.Classrooms
           .Include(c => c.PeopleClassrooms)
+          .Where(c => c.PeopleClassrooms.Any(pc => pc.Person.User.Id == user.Id))
           .ToList();
+          
       }
 
       var viewModel = new ClassroomListingViewModel 

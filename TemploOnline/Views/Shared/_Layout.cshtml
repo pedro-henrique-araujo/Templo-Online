@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using TemploOnline.Controllers.IdentityHelpers
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -7,41 +8,78 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <script src="https://kit.fontawesome.com/f6aab74ee7.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="~/images/fav-icon/fav-icon.png" type="image/png">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                    <i class="fas fa-church"></i> Templo Online
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Categories" asp-action="Index">Categorias</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="TextBooks" asp-action="Index">Revistas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Classrooms" asp-action="Index">Salas de aula</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="People" asp-action="Index">Irmãos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-controller="Roles" asp-action="Index">Permissões</a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="menu-icon" id="nav-show">
+                <div class="menu-icon-bar"></div>
+                <div class="menu-icon-bar"></div>
+                <div class="menu-icon-bar"></div>
             </div>
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <i class="fas fa-church"></i> Templo Online
+            </a>
+        </nav>
+        <nav class="hidden-nav" id="hidden-nav">            
+            <div class="sidenav-header">
+                <div class="nav-hide-arrow" id="nav-hide">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <p class="sidenav-username">@User.Identity.Name</p>
+            </div>
+           
+            <ul class="navbar-nav flex-grow-1 mt-4">
+                @if (User.IsInRole(Roles.Dev))
+                {
+                    <li>                    
+                        <a class="nav-link" asp-controller="Categories" asp-action="Index">
+                            <i class="fas fa-sitemap"></i>
+                            Categorias
+                        </a>
+                    </li>
+                    <li>                    
+                        <a class="nav-link" asp-controller="Roles" asp-action="Index">
+                            <i class="fas fa-id-badge"></i>
+                            Permissões
+                        </a>
+                    
+                    </li>
+                }
+                @if (User.IsInRole(Roles.Dev) || User.IsInRole(Roles.Admin))
+                {
+                    <li>                    
+                        <a class="nav-link" asp-controller="People" asp-action="Index">
+                            <i class="fas fa-user-friends"></i>
+                            Irmãos
+                        </a>
+                    </li>
+                     <li>                   
+                        <a class="nav-link" asp-controller="TextBooks" asp-action="Index">
+                            <i class="fas fa-book-open"></i>
+                            Revistas
+                        </a>
+                    </li>
+                }
+               
+                <li>                    
+                    <a class="nav-link" asp-controller="Classrooms" asp-action="Index">
+                        <i class="fas fa-user-graduate"></i>
+                        Salas de aula
+                    </a>
+                </li>
+                             
+                <li>
+                    <a class="nav-link" asp-controller="Account" asp-action="Logout">
+                        <i class="fas fa-power-off"></i>
+                        Sair
+                    </a>
+                </li>
+            </ul>
         </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

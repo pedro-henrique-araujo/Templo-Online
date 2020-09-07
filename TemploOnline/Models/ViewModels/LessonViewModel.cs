@@ -10,7 +10,7 @@ namespace TemploOnline.Models.ViewModels
     [Required]
     public int TextbookId { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Campo Obrigatório")]
     [Display(Name = "Número da Lição")]
     public int LessonNumber { get; set; }
 
