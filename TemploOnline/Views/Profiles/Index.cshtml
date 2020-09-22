@@ -1,0 +1,43 @@
+@model TemploOnline.Models.ViewModels.ProfileViewModel
+@{
+  var title = "Detalhes de usuário";
+  ViewData["Title"] = title;
+}
+
+<h1>@title</h1>
+<a asp-controller="Home" class="btn bg-light">
+  <i class="fas fa-angle-double-left"></i> Voltar
+</a>
+<a asp-action="Edit" class="btn btn-primary">
+  <i class="far fa-edit"></i> Editar
+</a>
+<a asp-action="ChangePassword" class="btn btn-success">
+  <i class="fas fa-lock"></i> Mudar senha
+</a>
+<hr>
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Username): </span>
+  <span>@Model.Username</span>
+</p>
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Name): </span>
+  <span>@Model.Name</span>
+</p>
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Nickname): </span>
+  <span>@Model.Nickname</span>
+</p>
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.Role): </span>
+  <span>@Model.Role</span>
+</p>
+
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.IsTeacher) </span>
+  <span>@Model.IsTeacher</span>
+</p>
+
+<p>
+  <span class="font-weight-bold">@Html.DisplayNameFor(m => m.IsStudent) </span>
+  <span>@Model.IsStudent</span>
+</p>

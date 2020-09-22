@@ -1,4 +1,5 @@
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TemploOnline.Data;
 using TemploOnline.Models.ApiModels;
@@ -8,6 +9,7 @@ namespace TemploOnline.Controllers.Api
   [Route("api/{controller}")]
   [ApiController]
 
+  [Authorize(Roles = "Professor, Admin, Dev")] 
   public class AttendancesListsController : ControllerBase
   {
     private TemploOnlineContext _context;

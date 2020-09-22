@@ -17,7 +17,8 @@ namespace TemploOnline.Models.ViewModels
     [Required(ErrorMessage = "Campo Obrigatório")]
     public string Nickname { get; set; }
 
-    public User User { get; set; }
+    [Required(ErrorMessage = "Campo Obrigatório")]
+    public string Login { get; set; }
 
     [Required]
     [Display(Name = "É professor?")]
@@ -42,7 +43,7 @@ namespace TemploOnline.Models.ViewModels
       :base(person)
     {
       Nickname = person.Nickname;
-      User = person.User;
+      Login = person.User.UserName;
       IsStudent = person.IsStudent;
       IsTeacher = person.IsTeacher;
     }

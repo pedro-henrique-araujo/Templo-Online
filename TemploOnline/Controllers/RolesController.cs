@@ -5,20 +5,20 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using TemploOnline.Data;
+using TemploOnline.Models.EntityModels;
 using TemploOnline.Models.ViewModels;
 
 namespace TemploOnline.Controllers
 {
   [Authorize(Roles = "Dev")]
-  public class RolesController : Controller
+  public class RolesController : TemploOnlineController
   {
-    private TemploOnlineContext _context;
-
-    private RoleManager<IdentityRole> _roleManager;
-    public RolesController(TemploOnlineContext context, RoleManager<IdentityRole> roleManager)
+    public RolesController(
+      TemploOnlineContext context, 
+      UserManager<User> userManager, 
+      RoleManager<IdentityRole> roleManager)
+      : base(context, userManager, roleManager)
     {
-      _context = context;
-      _roleManager = roleManager;
     }
 
     public ActionResult Index()

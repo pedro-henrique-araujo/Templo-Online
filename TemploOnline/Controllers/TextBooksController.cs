@@ -1,5 +1,6 @@
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,13 +11,14 @@ using TemploOnline.Models.ViewModels;
 namespace TemploOnline.Controllers
 {
   [Authorize(Roles = "Admin, Dev")]
-  public class TextbooksController : Controller
+  public class TextbooksController : TemploOnlineController
   {
-    private TemploOnlineContext _context;
-
-    public TextbooksController(TemploOnlineContext context)
+    public TextbooksController(
+      TemploOnlineContext context, 
+      UserManager<User> userManager, 
+      RoleManager<IdentityRole> roleManager)
+      : base(context, userManager, roleManager)
     {
-        _context = context;
     }
 
     public ActionResult Index()

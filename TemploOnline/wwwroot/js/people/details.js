@@ -17,21 +17,39 @@ $(document).ready(function () {
     }))
   })
 
-  function resultMessageBox(resultMessage)
+  var btnResetPwd = $("#btn-reset-pwd")
+  $(btnResetPwd).on("click", function () {
+    bootbox.confirm(confirmBootBox(function (result) {
+      if (result) {
+        $.ajax({
+          url: `/api/people/ ${$(btnResetPwd).attr("data-person-id")}`,
+          method: "PUT",
+          success: function (result) {
+            resultMessageBox(result, false)
+          },
+          error: function (result) {
+            resultMessageBox(result.responseJSON, false)
+          }
+        })
+      }
+    }))
+  })
+
+  function resultMessageBox(resultMessage, gotToIndex = true)
   {
     var { title, message } = resultMessage
     bootbox.alert({
       title: title,
-      message: message
-    })
-    $(location).attr("href", "/People")
+      message: message,
+      callback: function () {
+        if (gotToIndex)
+          $(location).attr("href", "/People")
+      }
+    })   
   }
 
-  function deleteBootBox(callbackFunction)
-  {
+  function confirmBootBoxTemp(callbackFunction) {
     return {
-      title: "Remover irmão",
-      message: "Deseja remover este irmão?",
       buttons: {
         confirm: {
           label: "Sim",
@@ -43,6 +61,22 @@ $(document).ready(function () {
         }
       },
       callback: callbackFunction
+    }
+  }
+
+  function deleteBootBox(callbackFunction) {
+    return {
+      title: "Remover irmão",
+      message: "Deseja remover este irmão?",
+      ...confirmBootBoxTemp(callbackFunction)
+    }
+  }
+
+  function confirmBootBox(callbackFunction) {
+    return {
+      title: "Resetar senha",
+      message: "Deseja resetar a senha?",
+      ...confirmBootBoxTemp(callbackFunction)
     }
   }
 })

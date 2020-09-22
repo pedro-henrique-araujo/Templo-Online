@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TemploOnline.Models.ApiModels;
@@ -7,6 +8,7 @@ namespace TemploOnline.Controllers.Api
 {
   [Route("api/{controller}")]
   [ApiController]
+  [Authorize(Roles = "Dev")]
   public class RolesController : ControllerBase
   {
     private RoleManager<IdentityRole> _roleManager;

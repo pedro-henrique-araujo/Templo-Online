@@ -7,5 +7,7 @@ namespace TemploOnline.Models.EntityModels
     public Person Person { get; set; }
 
     public int PersonId { get; set; }
+
+    public bool DefaultPassword { get; set; }
   }
 }

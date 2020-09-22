@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,14 +13,16 @@ using TemploOnline.Models.ViewModels;
 namespace TemploOnline.Controllers
 {
   [Authorize(Roles = "Aluno, Professor, Admin, Dev")]
-  public class AttendancesListsController : Controller
+  public class AttendancesListsController : TemploOnlineController
   {
-    public TemploOnlineContext _context { get; set; }
-
-    public AttendancesListsController(TemploOnlineContext context)
+    public AttendancesListsController(
+      TemploOnlineContext context, 
+      UserManager<User> userManager, 
+      RoleManager<IdentityRole> roleManager)
+      : base(context, userManager, roleManager)
     {
-      _context = context;
     }
+    
     [Authorize(Roles = "Admin, Dev, Professor")]
     public ActionResult New(int classroomId)
     {

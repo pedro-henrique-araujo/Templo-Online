@@ -2,21 +2,21 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using TemploOnline.Data;
 using TemploOnline.Models.EntityModels;
 using TemploOnline.Models.ViewModels;
 
 namespace TemploOnline.Controllers
 {
-  public class AccountController : Controller
+  public class AccountController : TemploOnlineController
   {
     private SignInManager<User> _signInManager { get; set; }
-
-    private UserManager<User> _userManager { get; set; }
-    public AccountController(SignInManager<User> signInManager, UserManager<User> userManager)
-    {
-      _signInManager = signInManager;
-      _userManager = userManager;
-    }
+    public AccountController(
+      TemploOnlineContext context, 
+      UserManager<User> userManager, 
+      RoleManager<IdentityRole> roleManager,
+      SignInManager<User> signInManager)
+      : base(context, userManager, roleManager) => _signInManager = signInManager;
 
     public ActionResult Index()
     {

@@ -8,17 +8,30 @@ using System;
 using Microsoft.AspNetCore.Authorization;
 using TemploOnline.Controllers.IdentityHelpers;
 using System.Collections.Generic;
+using System.Net;
+using System.Drawing;
+using Microsoft.AspNetCore.Hosting;
+using TemploOnline.FilesHelpers;
+using Microsoft.AspNetCore.Identity;
 
 namespace TemploOnline.Controllers
 {
   [Authorize(Roles = "Aluno, Professor, Admin, Dev")]
-  public class ClassroomsController : Controller
+  public class ClassroomsController : TemploOnlineController
   {
-    private TemploOnlineContext _context;
+    private IWebHostEnvironment _env;
 
-    public ClassroomsController(TemploOnlineContext context)
+    private FileManager _fileManager;
+
+    public ClassroomsController(
+      TemploOnlineContext context,
+      UserManager<User> userManager, 
+      RoleManager<IdentityRole> roleManager, 
+      IWebHostEnvironment env)
+      :base(context, userManager, roleManager)
     {
-      _context = context;
+      _env = env;
+      _fileManager = new FileManager(_env);
     }
 
     public ActionResult Index()
@@ -62,7 +75,11 @@ namespace TemploOnline.Controllers
     {
       if (ModelState.IsValid)
       {    
-        var classroom = new Classroom { Name = viewModel.Name};
+        var classroom = new Classroom 
+        { 
+          Name = viewModel.Name,
+          CoverUrl = DownloadImg(viewModel.CoverUrl)
+        };
         _context.Classrooms.Add(classroom);
         var teachersIds = Request.Form["Teachers"];
         foreach (var id in teachersIds)
@@ -136,6 +153,12 @@ namespace TemploOnline.Controllers
           .Where(c => c.Id == viewModel.Id)
           .FirstOrDefault();
         classroom.Name = viewModel.Name;
+        if (classroom.CoverUrl != viewModel.CoverUrl)
+        {
+          DeleteImg(classroom.CoverUrl);
+          classroom.CoverUrl = DownloadImg(viewModel.CoverUrl);
+        }
+         
         _context.PeopleClassrooms.RemoveRange(
           _context.PeopleClassrooms.Where(pc => pc.ClassroomId == classroom.Id)
         );
@@ -163,5 +186,11 @@ namespace TemploOnline.Controllers
       }
       return View(viewModel);
     }
+
+    #region Helpers
+    public string DownloadImg(string imgUrl) => _fileManager.DownloadImg(imgUrl);
+
+    public bool DeleteImg(string coverUrl) => _fileManager.DeleteImg(coverUrl);
+    #endregion
   }
 }

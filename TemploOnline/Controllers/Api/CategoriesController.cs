@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TemploOnline.Data;
 using TemploOnline.Models.ApiModels;
@@ -6,6 +7,7 @@ namespace TemploOnline.Controllers.Api
 {
   [Route("api/[controller]")]
   [ApiController]
+  [Authorize(Roles = "Dev")]
   public class CategoriesController : ControllerBase
   {
     public TemploOnlineContext _context;

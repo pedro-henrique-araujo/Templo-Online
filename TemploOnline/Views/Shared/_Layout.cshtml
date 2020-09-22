@@ -31,6 +31,20 @@
             </div>
            
             <ul class="navbar-nav flex-grow-1 mt-4">
+                <li>                    
+                    <a class="nav-link" asp-controller="Profiles" asp-action="Index">
+                        <i class="far fa-user"></i>
+                        Perfil
+                    </a>
+                </li>
+
+                 <li>                    
+                    <a class="nav-link" asp-controller="Classrooms" asp-action="Index">
+                        <i class="fas fa-user-graduate"></i>
+                        Salas de aula
+                    </a>
+                </li>
+                
                 @if (User.IsInRole(Roles.Dev))
                 {
                     <li>                    
@@ -61,14 +75,8 @@
                             Revistas
                         </a>
                     </li>
-                }
+                }              
                
-                <li>                    
-                    <a class="nav-link" asp-controller="Classrooms" asp-action="Index">
-                        <i class="fas fa-user-graduate"></i>
-                        Salas de aula
-                    </a>
-                </li>
                              
                 <li>
                     <a class="nav-link" asp-controller="Account" asp-action="Logout">
@@ -86,8 +94,10 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - TemploOnline
+        <div class="container-fluid row">
+            <div class="col-12">
+                @DateTime.Today.Year - Templo Online</a>
+            </div>           
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

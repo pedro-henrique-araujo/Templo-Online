@@ -1,4 +1,5 @@
 using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TemploOnline.Data;
 using TemploOnline.Models.ApiModels;
@@ -7,6 +8,7 @@ namespace TemploOnline.Controllers.Api
 {
   [Route("api/[controller]")]
   [ApiController]
+  [Authorize(Roles = "Admin, Dev")]
   public class TextBooksController : ControllerBase
   {
     private TemploOnlineContext _context;

@@ -14,11 +14,12 @@ namespace TemploOnline.Models.ViewModels
   {
     public List<SelectListItem> Categories { get; set; }
 
-    public int CategoryId { get; set; }
-
     [Display(Name = "Categoria")]
     [Required(ErrorMessage = "Campo Obrigatório")]
-    public string CategoryName { get; set; }
+    public int CategoryId { get; set; }
+
+
+    public Category Category { get; set; }
 
     public List<Lesson> Lessons { get; set; } = new List<Lesson>();
 
@@ -31,7 +32,7 @@ namespace TemploOnline.Models.ViewModels
       :base(textBook)
     {
       CategoryId = textBook.CategoryId;
-      CategoryName = textBook.Category.Name;
+      Category = textBook.Category;
       Lessons = textBook.Lessons;
     }
   }

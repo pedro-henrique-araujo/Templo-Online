@@ -30,15 +30,68 @@
       }
     </select>
   </div>
+
+  <div class="form-group col-sm-12 col-md-6">
+    <label asp-for="@Model.CoverUrl"></label>
+    <input asp-for="@Model.CoverUrl" id="cover-img-input" type="hidden"/>
+    <div>
+      <img class="col-12" id="cover-img" src="@Model.CoverUrl"/>
+    </div>
+    <button class="btn btn-primary mt-2" id="btn-cover">
+      <i class="fas fa-image"></i> Escolher Capa
+    </button>
+  </div>
   <input asp-for="@Model.Id" type="hidden">
   @Html.AntiForgeryToken()
   <a asp-action="Index" class="btn bg-light"><i class="fas fa-angle-double-left"></i> Cancelar</a>
   <button type="submit" class="btn btn-primary"><i class="far fa-save"></i> Salvar</button>
 </form>
 
+<div class="modal fade" id="modal">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span>
+          <h2>Escolha uma imagem</h2>
+        </span>
+        <span class="float-right">
+          <button class="btn btn-danger" id="close-btn">
+            &times;
+          </button>
+        </span>
+      </div>
+     <div class="modal-body">
+       <form class="inline-form">
+         <div class="form-group">
+          <input type="text" class="form-control" id="input-search" placeholder="Pesquise...">
+          <button class="btn btn-outline-success mt-2" id="btn-search">
+            <i class="fas fa-search"></i>
+            Pesquisar
+          </button>        
+        </div>
+        </form>
+       <div id="img-selector" class="row mt-3"></div>
+       <div id="btn-more" class="mb-2">
+         <button class="btn btn-primary">
+           <i class="fas fa-plus"></i>
+           Ver mais
+         </button>
+       </div>
+       <div class="modal-footer">
+         <div>
+            <a href="https://pixabay.com/" target="_blank">
+              <img src="https://pixabay.com/static/img/public/leaderboard_b.png" alt="Pixabay">
+            </a>
+          </div>
+       </div>
+     </div>
+    </div>
+  </div>
+</div>
 @section scripts 
 {
   <link rel="stylesheet" href="~/lib/select2/css/select2.min.css"/>
   <script src="~/lib/select2/js/select2.min.js"></script>
   <script src="~/js/classrooms/select2.js"></script>
+  <script src="~/js/classrooms/cover-img.js"></script>
 }

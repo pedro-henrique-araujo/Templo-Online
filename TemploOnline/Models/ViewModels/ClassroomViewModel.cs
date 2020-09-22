@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
 using TemploOnline.Models.EntityModels;
 
 namespace TemploOnline.Models.ViewModels
@@ -15,6 +15,9 @@ namespace TemploOnline.Models.ViewModels
     public IEnumerable<Person> People { get; set; }
     public IEnumerable<AttendanceList> AttendancesLists { get; set; }
 
+    [Display(Name = "Imagem de capa")]
+    public string CoverUrl { get; set; }
+
     public ClassroomViewModel()
     {
         
@@ -22,7 +25,7 @@ namespace TemploOnline.Models.ViewModels
     public ClassroomViewModel(Classroom classroom)
       :base(classroom)
     {
-
+      CoverUrl = classroom.CoverUrl;
     }
   }
 }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "D081SaxqxKWVli+eYERbpR90rEqlbkid99VCv1aRr3DjSptOpjEo0kak37QBqapo/hlkGyTYKbpkjuvKGDf3Dw==",
+  "dgSpecHash": "20gcfzvPsSOnG1hRSl8NWK8Fgnuhn1BjM+ZoNGn8vlKLzhLkGiBYNBJl8MW9yeMDYRHdZhyqluUkVulC+hIumw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\TemploOnline.csproj",
+  "projectFilePath": "C:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\TemploOnline.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Pedro Henrique\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\Pedro Henrique\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

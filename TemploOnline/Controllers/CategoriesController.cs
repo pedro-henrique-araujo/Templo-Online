@@ -1,5 +1,6 @@
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using TemploOnline.Data;
 using TemploOnline.Models.EntityModels;
@@ -8,13 +9,14 @@ using TemploOnline.Models.ViewModels;
 namespace TemploOnline.Controllers
 {
   [Authorize(Roles = "Dev")]
-  public class CategoriesController : Controller
+  public class CategoriesController : TemploOnlineController
   {
-    private TemploOnlineContext _context;
-
-    public CategoriesController(TemploOnlineContext context)
+    public CategoriesController(
+      TemploOnlineContext context, 
+      UserManager<User> userManager, 
+      RoleManager<IdentityRole> roleManager)
+      : base(context, userManager, roleManager)
     {
-        _context = context;
     }
 
     public ActionResult Index()

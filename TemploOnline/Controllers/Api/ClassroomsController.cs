@@ -1,18 +1,25 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using TemploOnline.Data;
+using TemploOnline.FilesHelpers;
 using TemploOnline.Models.ApiModels;
 
 namespace TemploOnline.Controllers.Api
 {
   [Route("api/{controller}")]
   [ApiController]
+  [Authorize(Roles = "Admin, Dev")]
   public class ClassroomsController : ControllerBase
   {    
     private TemploOnlineContext _context;
 
-    public ClassroomsController(TemploOnlineContext context)
+    private FileManager _fileManager;
+
+    public ClassroomsController(TemploOnlineContext context, IWebHostEnvironment env)
     {
       _context = context;
+      _fileManager = new FileManager(env);
     }
 
     [HttpDelete("{id}")]
@@ -21,6 +28,7 @@ namespace TemploOnline.Controllers.Api
       var classroom = _context.Classrooms.Find(id);
       if (classroom != null)
       {
+        _fileManager.DeleteImg(classroom.CoverUrl);
         _context.Classrooms.Remove(classroom);
         _context.SaveChanges();
         return Ok(new ResultMessage(

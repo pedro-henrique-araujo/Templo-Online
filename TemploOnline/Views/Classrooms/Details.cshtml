@@ -10,13 +10,19 @@
   <i class="fas fa-angle-double-left"></i> Voltar
 </a>
 
-<a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
-  <i class="far fa-edit"></i> Editar
-</a>
+@if (User.IsInRole(Roles.Dev) || User.IsInRole(Roles.Admin))
+{
+  <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+    <i class="far fa-edit"></i> Editar
+  </a>
 
-<button class="btn btn-danger" id="btn-delete" data-classroom-id="@Model.Id">
-  <i class="fas fa-times"></i> Remover
-</button>
+  
+
+  <button class="btn btn-danger" id="btn-delete" data-classroom-id="@Model.Id">
+    <i class="fas fa-times"></i> Remover
+  </button>  
+}
+
 @{
   var teachers = Model.People
       .Where(p => p.PeopleClassrooms
@@ -30,7 +36,7 @@
 
 <div class="row my-3">
   <div class="card rounded classroom-details-card col-12">
-    <div class="card-header">
+    <div class="card-header" style="background-image: url('@Model.CoverUrl');">
       <h1 class="classroom-title">@Model.Name</h1>
     </div> 
     <div class="card-body">
@@ -146,4 +152,5 @@
 {
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
   <script src="~/js/classrooms/details.js"></script>
+ 
 }

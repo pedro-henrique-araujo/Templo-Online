@@ -1,5 +1,5 @@
 {
-  "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\TemploOnline.csproj",
+  "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\TemploOnline.csproj",
   "Configuration": {
     "ConfigurationName": "MVC-3.0",
     "LanguageVersion": "3.0",
@@ -14392,168 +14392,183 @@
   "RootNamespace": "TemploOnline",
   "Documents": [
     {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Roles\\Index.cshtml",
-      "TargetPath": "Views\\Roles\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Roles\\Details.cshtml",
-      "TargetPath": "Views\\Roles\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Account\\Index.cshtml",
-      "TargetPath": "Views\\Account\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\People\\New.cshtml",
-      "TargetPath": "Views\\People\\New.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Lessons\\Details.cshtml",
-      "TargetPath": "Views\\Lessons\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Categories\\Details.cshtml",
-      "TargetPath": "Views\\Categories\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Roles\\New.cshtml",
-      "TargetPath": "Views\\Roles\\New.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\TextBooks\\Details.cshtml",
-      "TargetPath": "Views\\TextBooks\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Classrooms\\New.cshtml",
-      "TargetPath": "Views\\Classrooms\\New.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Shared\\Error.cshtml",
-      "TargetPath": "Views\\Shared\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Categories\\Edit.cshtml",
-      "TargetPath": "Views\\Categories\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Classrooms\\Edit.cshtml",
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Classrooms\\Edit.cshtml",
       "TargetPath": "Views\\Classrooms\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Home\\Index.cshtml",
-      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Roles\\New.cshtml",
+      "TargetPath": "Views\\Roles\\New.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\People\\Edit.cshtml",
-      "TargetPath": "Views\\People\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\TextBooks\\New.cshtml",
-      "TargetPath": "Views\\TextBooks\\New.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\AttendancesLists\\Details.cshtml",
-      "TargetPath": "Views\\AttendancesLists\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Classrooms\\Index.cshtml",
-      "TargetPath": "Views\\Classrooms\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Lessons\\New.cshtml",
-      "TargetPath": "Views\\Lessons\\New.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\People\\Details.cshtml",
-      "TargetPath": "Views\\People\\Details.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\_ViewStart.cshtml",
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Classrooms\\Details.cshtml",
-      "TargetPath": "Views\\Classrooms\\Details.cshtml",
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Lessons\\New.cshtml",
+      "TargetPath": "Views\\Lessons\\New.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\People\\Index.cshtml",
-      "TargetPath": "Views\\People\\Index.cshtml",
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Categories\\Edit.cshtml",
+      "TargetPath": "Views\\Categories\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Categories\\Index.cshtml",
-      "TargetPath": "Views\\Categories\\Index.cshtml",
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Categories\\Details.cshtml",
+      "TargetPath": "Views\\Categories\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Categories\\New.cshtml",
-      "TargetPath": "Views\\Categories\\New.cshtml",
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\TextBooks\\Details.cshtml",
+      "TargetPath": "Views\\TextBooks\\Details.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\TextBooks\\Edit.cshtml",
-      "TargetPath": "Views\\TextBooks\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Shared\\_AccountLayout.cshtml",
-      "TargetPath": "Views\\Shared\\_AccountLayout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\AttendancesLists\\Edit.cshtml",
-      "TargetPath": "Views\\AttendancesLists\\Edit.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Lessons\\Edit.cshtml",
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Lessons\\Edit.cshtml",
       "TargetPath": "Views\\Lessons\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\TextBooks\\Index.cshtml",
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\People\\Index.cshtml",
+      "TargetPath": "Views\\People\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Roles\\Details.cshtml",
+      "TargetPath": "Views\\Roles\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\TextBooks\\Index.cshtml",
       "TargetPath": "Views\\TextBooks\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\_ViewImports.cshtml",
-      "TargetPath": "Views\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\AttendancesLists\\New.cshtml",
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\AttendancesLists\\New.cshtml",
       "TargetPath": "Views\\AttendancesLists\\New.cshtml",
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online\\TemploOnline\\Views\\Shared\\_Layout.cshtml",
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Account\\Index.cshtml",
+      "TargetPath": "Views\\Account\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\TextBooks\\New.cshtml",
+      "TargetPath": "Views\\TextBooks\\New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Lessons\\Details.cshtml",
+      "TargetPath": "Views\\Lessons\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\AttendancesLists\\Details.cshtml",
+      "TargetPath": "Views\\AttendancesLists\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Shared\\Error.cshtml",
+      "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Profiles\\ChangePassword.cshtml",
+      "TargetPath": "Views\\Profiles\\ChangePassword.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Shared\\_AccountLayout.cshtml",
+      "TargetPath": "Views\\Shared\\_AccountLayout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\TextBooks\\Edit.cshtml",
+      "TargetPath": "Views\\TextBooks\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Categories\\New.cshtml",
+      "TargetPath": "Views\\Categories\\New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Classrooms\\New.cshtml",
+      "TargetPath": "Views\\Classrooms\\New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Categories\\Index.cshtml",
+      "TargetPath": "Views\\Categories\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\People\\Details.cshtml",
+      "TargetPath": "Views\\People\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Classrooms\\Details.cshtml",
+      "TargetPath": "Views\\Classrooms\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\People\\Edit.cshtml",
+      "TargetPath": "Views\\People\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\_ViewImports.cshtml",
+      "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Home\\Index.cshtml",
+      "TargetPath": "Views\\Home\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Classrooms\\Index.cshtml",
+      "TargetPath": "Views\\Classrooms\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Profiles\\Index.cshtml",
+      "TargetPath": "Views\\Profiles\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Roles\\Index.cshtml",
+      "TargetPath": "Views\\Roles\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\AttendancesLists\\Edit.cshtml",
+      "TargetPath": "Views\\AttendancesLists\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\People\\New.cshtml",
+      "TargetPath": "Views\\People\\New.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Pedro Henrique\\Documents\\github\\Templo-Online2\\Templo-Online\\TemploOnline\\Views\\Profiles\\Edit.cshtml",
+      "TargetPath": "Views\\Profiles\\Edit.cshtml",
       "FileKind": "mvc"
     }
   ],

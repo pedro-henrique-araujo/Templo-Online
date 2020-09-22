@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
@@ -5,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using TemploOnline.Controllers.IdentityHelpers;
 using TemploOnline.Data;
 using TemploOnline.Models.EntityModels;
 using TemploOnline.Models.ViewModels;
@@ -12,21 +14,14 @@ using TemploOnline.Models.ViewModels;
 namespace TemploOnline.Controllers
 {
   [Authorize(Roles = "Admin, Dev")]
-  public class PeopleController : Controller
+  public class PeopleController : TemploOnlineController
   {
-    private TemploOnlineContext _context;
-    private UserManager<User> _userManager;
-
-    private RoleManager<IdentityRole> _roleManager { get; set; }
-
     public PeopleController(
       TemploOnlineContext context, 
       UserManager<User> userManager, 
       RoleManager<IdentityRole> roleManager)
+      : base(context, userManager, roleManager)
     {
-      _context = context;
-      _userManager = userManager;
-      _roleManager = roleManager;
     }
 
     public ActionResult Index()
@@ -41,12 +36,7 @@ namespace TemploOnline.Controllers
     {
       return View(new PersonViewModel()
       {
-        Roles = _context.Roles
-          .Select(r => new SelectListItem 
-          {
-            Value = r.Id,
-            Text = r.Name
-          }).ToList()
+        Roles = GetRoles()
       });
     }
 
@@ -66,10 +56,11 @@ namespace TemploOnline.Controllers
         _context.People.Add(person);
         var user = new User 
         { 
-          UserName = viewModel.User.UserName,
-          Person = person
+          UserName = viewModel.Login,
+          Person = person,
+          DefaultPassword = true
         };
-        var result = await _userManager.CreateAsync(user, "123456");
+        var result = await _userManager.CreateAsync(user, Password.Default);
         if (result.Succeeded)
         {
           var role = await _roleManager.Roles
@@ -83,6 +74,7 @@ namespace TemploOnline.Controllers
           }          
         }       
       }
+      viewModel.Roles = GetRoles();
       return View(viewModel);
     }
 
@@ -113,13 +105,7 @@ namespace TemploOnline.Controllers
           {
             RoleId = _context.UserRoles
               .FirstOrDefault(ur => ur.UserId == person.User.Id).RoleId,
-            Roles = _context.Roles
-            .Select(r => new SelectListItem 
-            {
-              Value = r.Id,
-              Text = r.Name
-            })
-            .ToList()
+            Roles = GetRoles()
           });
       }
       return RedirectToAction(nameof(Index));
@@ -139,7 +125,7 @@ namespace TemploOnline.Controllers
         person.Nickname = string.IsNullOrEmpty(viewModel.Nickname) ? viewModel.Name : viewModel.Nickname;
         person.IsTeacher = viewModel.IsTeacher;
         person.IsStudent = viewModel.IsStudent;
-        person.User.UserName = viewModel.User.UserName;
+        person.User.UserName = viewModel.Login;
         var result = await _userManager.UpdateAsync(person.User);
         if (result.Succeeded)
         {
@@ -163,7 +149,20 @@ namespace TemploOnline.Controllers
           return RedirectToAction(nameof(Index));
         }       
       }
+      viewModel.Roles = GetRoles();
       return View(viewModel);
     }
+
+    #region Helpers
+    public IEnumerable<SelectListItem> GetRoles()
+    {
+      return _context.Roles
+          .Select(r => new SelectListItem 
+          {
+            Value = r.Id,
+            Text = r.Name
+          }).ToList();
+    }
+    #endregion
   }
 }
