@@ -23,20 +23,20 @@ namespace TemploOnline.Controllers
     {
     }
 
-    public ActionResult Index() => View(GetProfileViewModel());
+    public ActionResult Index() => Func(() =>View(GetProfileViewModel()));
 
-    public ActionResult Edit()
+    public ActionResult Edit() => Func(() =>
     {
       var user = GetUser();
       var person = user.Person;
       if (person != null)
         return View(GetProfileViewModel());
       return RedirectToAction("Index", "Home");
-    }
+    });
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(ProfileViewModel viewModel)
+    public ActionResult Edit(ProfileViewModel viewModel) => Func(() =>
     {
       if (ModelState.IsValid)
       {
@@ -47,13 +47,18 @@ namespace TemploOnline.Controllers
         return RedirectToAction(nameof(Index));
       }
       return View(viewModel);
-    }
+    });
 
-    public ActionResult ChangePassword() => View(new ChangePasswordViewModel());
+    public ActionResult ChangePassword(string msg = "") => Func(() => 
+    {
+      ViewData["Msg"] = msg;
+      return View(new ChangePasswordViewModel());
+    }, false);
 
     [ValidateAntiForgeryToken]
     [HttpPost]
     public async Task<ActionResult> ChangePassword(ChangePasswordViewModel viewModel)
+      => await FuncAsync(async () =>
     {
       if (ModelState.IsValid)
       {
@@ -62,11 +67,13 @@ namespace TemploOnline.Controllers
         var result = await _userManager.ResetPasswordAsync(user, token, viewModel.Password);
         if (result.Succeeded)
         {
+          user.DefaultPassword = false;
+          await _context.SaveChangesAsync();
           return RedirectToAction(nameof(Index));
         }
       }
       return View(viewModel);
-    }
+    }, false);
 
     #region Helpers
 

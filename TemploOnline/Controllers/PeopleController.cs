@@ -24,25 +24,19 @@ namespace TemploOnline.Controllers
     {
     }
 
-    public ActionResult Index()
-    {
-      return View(new PersonListingViewModel
+    public ActionResult Index() => Func(() => View(new PersonListingViewModel
       {
         People = _context.People.ToList()
-      });
-    }
+      }));
 
-    public ActionResult New()
-    {
-      return View(new PersonViewModel()
+    public ActionResult New() => Func(() => View(new PersonViewModel()
       {
         Roles = GetRoles()
-      });
-    }
+      }));
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> New(PersonViewModel viewModel)
+    public async Task<ActionResult> New(PersonViewModel viewModel) => await FuncAsync(async() =>
     {
       if (ModelState.IsValid)
       {        
@@ -76,9 +70,9 @@ namespace TemploOnline.Controllers
       }
       viewModel.Roles = GetRoles();
       return View(viewModel);
-    }
+    });
 
-    public ActionResult Details(int? id)
+    public ActionResult Details(int? id) => Func(() =>
     {
       if (id != null)
       {
@@ -90,9 +84,9 @@ namespace TemploOnline.Controllers
             return View(new PersonViewModel(person));
       }
       return RedirectToAction(nameof(Index));
-    }
+    });
 
-    public ActionResult Edit(int? id)
+    public ActionResult Edit(int? id) => Func(() =>
     {
       if (id != null)
       {
@@ -109,11 +103,11 @@ namespace TemploOnline.Controllers
           });
       }
       return RedirectToAction(nameof(Index));
-    }
+    });
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> Edit(PersonViewModel viewModel)
+    public async Task<ActionResult> Edit(PersonViewModel viewModel) => await FuncAsync(async () =>
     {
       if (ModelState.IsValid)
       {
@@ -151,7 +145,7 @@ namespace TemploOnline.Controllers
       }
       viewModel.Roles = GetRoles();
       return View(viewModel);
-    }
+    });
 
     #region Helpers
     public IEnumerable<SelectListItem> GetRoles()

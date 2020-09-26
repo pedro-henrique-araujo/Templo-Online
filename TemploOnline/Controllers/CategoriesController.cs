@@ -19,7 +19,7 @@ namespace TemploOnline.Controllers
     {
     }
 
-    public ActionResult Index()
+    public ActionResult Index() => Func(() => 
     {
       var viewModel = new CategoryListingViewModel
       {
@@ -27,16 +27,13 @@ namespace TemploOnline.Controllers
       };
 
       return View(viewModel);
-    }
+    });
 
-    public ActionResult New()
-    {    
-     return View(new CategoryViewModel());
-    }
+    public ActionResult New() => Func(() => View(new CategoryViewModel()));
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult New(CategoryViewModel viewModel)
+    public ActionResult New(CategoryViewModel viewModel) => Func(() => 
     {
       if (ModelState.IsValid)
       {
@@ -46,9 +43,9 @@ namespace TemploOnline.Controllers
         return RedirectToAction(nameof(Index));
       }
       return View(viewModel);
-    }
+    });
 
-    public ActionResult Details(int? id)
+    public ActionResult Details(int? id) => Func(() => 
     {
       if (id != null)
       {
@@ -57,9 +54,9 @@ namespace TemploOnline.Controllers
           return View(new CategoryViewModel(category));
       }
       return RedirectToAction(nameof(Index));
-    }
+    });
 
-    public ActionResult Edit(int? id)
+    public ActionResult Edit(int? id) => Func(() => 
     {
       if (id != null)
       {
@@ -68,11 +65,11 @@ namespace TemploOnline.Controllers
           return View(new CategoryViewModel(category));
       }
       return RedirectToAction(nameof(Index));
-    }
+    });
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(CategoryViewModel viewModel)
+    public ActionResult Edit(CategoryViewModel viewModel) => Func(() => 
     {
       if (ModelState.IsValid)
       {
@@ -86,6 +83,6 @@ namespace TemploOnline.Controllers
         return RedirectToAction(nameof(Index));
       }
       return View(viewModel);
-    }
+    });
   }
 }

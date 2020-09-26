@@ -21,22 +21,17 @@ namespace TemploOnline.Controllers
     {
     }
 
-    public ActionResult Index()
-    {
-      return View(new RoleListingViewModel 
+    public ActionResult Index() => Func(() => View(new RoleListingViewModel 
       {
         Roles =  _roleManager.Roles
-      });
-    }
+      }));
 
-    public ActionResult New()
-    {
-      return View(new RoleViewModel());
-    }
+    public ActionResult New() => Func(() => View(new RoleViewModel()));
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> New(RoleViewModel viewModel)
+    public async Task<ActionResult> New(RoleViewModel viewModel) => 
+      await FuncAsync(async () =>
     {
       var result = await _roleManager.CreateAsync(new IdentityRole(viewModel.Name));
       if (result.Succeeded)
@@ -44,9 +39,10 @@ namespace TemploOnline.Controllers
         return RedirectToAction(nameof(Index));
       }
       return View(viewModel);
-    }
+    });
 
-    public async Task<ActionResult> Details(string id)
+    public async Task<ActionResult> Details(string id) => 
+      await FuncAsync(async () =>
     {
       if (id != null)
       {
@@ -55,9 +51,10 @@ namespace TemploOnline.Controllers
           return View(new RoleViewModel(role));
       }
       return RedirectToAction(nameof(Index));
-    }
+    });
 
-    public async Task<ActionResult> Edit(string id)
+    public async Task<ActionResult> Edit(string id) => 
+      await FuncAsync(async () =>
     {
       if (id != null)
       {
@@ -66,6 +63,6 @@ namespace TemploOnline.Controllers
           return View(new RoleViewModel(role));
       }
       return RedirectToAction(nameof(Index));
-    }
+    });
   }
 }

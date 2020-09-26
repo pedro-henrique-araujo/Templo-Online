@@ -24,7 +24,7 @@ namespace TemploOnline.Controllers
     }
     
     [Authorize(Roles = "Admin, Dev, Professor")]
-    public ActionResult New(int classroomId)
+    public ActionResult New(int classroomId) => Func(() => 
     {
       var peopleClassrooms = _context.PeopleClassrooms
         .Where(pc => pc.ClassroomId == classroomId);
@@ -65,12 +65,12 @@ namespace TemploOnline.Controllers
           TeachersAttendances = teachers,
           StudentsAttendances = students
       });
-    }
+    });
 
     [Authorize(Roles = "Admin, Dev, Professor")]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult New(AttendanceListViewModel viewModel)
+    public ActionResult New(AttendanceListViewModel viewModel) => Func(() => 
     {
       var attendanceList = new AttendanceList 
       {
@@ -95,9 +95,9 @@ namespace TemploOnline.Controllers
       
       _context.SaveChanges();
      return RedirectToAction("Details", "Classrooms", new { id = viewModel.ClassroomId });
-    }
+    });
     
-    public ActionResult Details(int? id)
+    public ActionResult Details(int? id) => Func(() =>
     {
       if (id != null)
       {
@@ -125,10 +125,10 @@ namespace TemploOnline.Controllers
         }
       }
       return RedirectToAction("Index", "Classrooms");
-    }
+    });
 
     [Authorize(Roles = "Admin, Dev, Professor")]
-    public ActionResult Edit(int? id)
+    public ActionResult Edit(int? id) => Func(() =>
     {
       if (id != null)
       {
@@ -158,13 +158,13 @@ namespace TemploOnline.Controllers
           });
         }
       }
-     return RedirectToAction("Index", "Classrooms");
-    }    
+      return RedirectToAction("Index", "Classrooms");
+    }); 
 
     [Authorize(Roles = "Admin, Dev, Professor")]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(AttendanceListViewModel viewModel)
+    public ActionResult Edit(AttendanceListViewModel viewModel) => Func(() => 
     {
       var attendanceList = _context.AttendancesLists
         .Where(al => al.Id == viewModel.Id)
@@ -195,6 +195,6 @@ namespace TemploOnline.Controllers
         _context.SaveChanges();
       }
       return RedirectToAction("Details", "Classrooms", new { id = viewModel.ClassroomId });
-    }
+    });
   }
 }

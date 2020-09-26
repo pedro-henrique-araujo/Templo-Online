@@ -8,7 +8,7 @@ using TemploOnline.Models.EntityModels;
 
 namespace TemploOnline.Controllers
 {
-    [Authorize(Roles = "Aluno, Professor, Admin, Dev")]
+    
     public class HomeController : TemploOnlineController
     {
 
@@ -19,16 +19,8 @@ namespace TemploOnline.Controllers
             : base(context, userManager, roleManager)
         {
         }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        
+        [Authorize(Roles = "Aluno, Professor, Admin, Dev")]
+        public IActionResult Index() => Func(() => View());
     }
 }

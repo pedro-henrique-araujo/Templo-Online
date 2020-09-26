@@ -34,7 +34,7 @@ namespace TemploOnline.Controllers
       _fileManager = new FileManager(_env);
     }
 
-    public ActionResult Index()
+    public ActionResult Index() => Func(() =>
     {      
       var classrooms = new List<Classroom>();
       if (User.IsInRole(Roles.Admin) || User.IsInRole(Roles.Dev))
@@ -57,21 +57,21 @@ namespace TemploOnline.Controllers
       };
 
       return View(viewModel);
-    }
+    });
 
      [Authorize(Roles = "Admin, Dev")]
-    public ActionResult New()
+    public ActionResult New() => Func(() =>
     {
       return View(new ClassroomViewModel() 
       { 
         People = _context.People.OrderBy(p => p.Name).ToList() 
       });
-    }
+    });
 
      [Authorize(Roles = "Admin, Dev")]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult New(ClassroomViewModel viewModel)
+    public ActionResult New(ClassroomViewModel viewModel) => Func(() =>
     {
       if (ModelState.IsValid)
       {    
@@ -103,9 +103,9 @@ namespace TemploOnline.Controllers
         return RedirectToAction(nameof(Index));
       }
       return View(viewModel);
-    }
+    });
 
-    public ActionResult Details(int? id)
+    public ActionResult Details(int? id) => Func(() =>
     {
       if (id != null)
       {
@@ -123,9 +123,10 @@ namespace TemploOnline.Controllers
           });         
       }
       return RedirectToAction(nameof(Index));
-    }
-     [Authorize(Roles = "Admin, Dev")]
-    public ActionResult Edit(int? id)
+    });
+
+    [Authorize(Roles = "Admin, Dev")]
+    public ActionResult Edit(int? id) => Func(() =>
     {
       if (id != null)
       {
@@ -140,12 +141,12 @@ namespace TemploOnline.Controllers
           });
       }
       return RedirectToAction(nameof(Index));
-    }
+    });
 
     [Authorize(Roles = "Admin, Dev")]
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(ClassroomViewModel viewModel)
+    public ActionResult Edit(ClassroomViewModel viewModel) => Func(() =>
     {
       if (ModelState.IsValid)
       {
@@ -185,7 +186,7 @@ namespace TemploOnline.Controllers
         return RedirectToAction(nameof(Index));
       }
       return View(viewModel);
-    }
+    });
 
     #region Helpers
     public string DownloadImg(string imgUrl) => _fileManager.DownloadImg(imgUrl);

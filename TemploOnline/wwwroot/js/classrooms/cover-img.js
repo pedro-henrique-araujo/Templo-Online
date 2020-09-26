@@ -21,7 +21,7 @@ $(document).ready(function () {
       page = 1
     }
     var url = 
-      "https://pixabay.com/api/?key=yourkey&safesearch=true&q=" + q + "&page=" + page   
+      "https://pixabay.com/api/?key=yourkey=true&q=" + q + "&page=" + page   
      
     $.get(url, handleResult)
    }

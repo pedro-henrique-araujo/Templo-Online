@@ -21,16 +21,16 @@ namespace TemploOnline.Controllers
     {
     }
 
-    public ActionResult Index()
+    public ActionResult Index() => Func(() =>
     {
       var viewModel = new TextBookListingViewModel
       {
         TextBooks = _context.TextBooks.OrderBy(t => t.Name).ToList()
       };
       return View(viewModel);
-    }
+    });
 
-    public ActionResult New()
+    public ActionResult New() => Func(() =>
     {
       var viewModel = new TextBookViewModel
       {
@@ -44,11 +44,11 @@ namespace TemploOnline.Controllers
       };
 
       return View(viewModel);
-    }
+    });
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult New(TextBookViewModel viewModel)
+    public ActionResult New(TextBookViewModel viewModel) => Func(() =>
     {
       if (ModelState.IsValid)
       {
@@ -70,9 +70,9 @@ namespace TemploOnline.Controllers
         }).ToList();
 
       return View(viewModel);
-    }
+    });
 
-    public ActionResult Details(int? id)
+    public ActionResult Details(int? id) => Func(() =>
     {
       if (id != null)
       {
@@ -89,9 +89,9 @@ namespace TemploOnline.Controllers
         }
       }
       return RedirectToAction(nameof(Index));
-    }
+    });
 
-    public ActionResult Edit(int? id)
+    public ActionResult Edit(int? id) => Func(() =>
     {
       if (id != null)
       {
@@ -112,11 +112,11 @@ namespace TemploOnline.Controllers
           });
       }
       return RedirectToAction(nameof(Index));
-    }
+    });
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(TextBookViewModel viewModel)
+    public ActionResult Edit(TextBookViewModel viewModel) => Func(() =>
     {
       if (ModelState.IsValid)
       {
@@ -138,6 +138,6 @@ namespace TemploOnline.Controllers
           Text = c.Name
         }).ToList();
       return View(viewModel);
-    }
+    });
   }
 }

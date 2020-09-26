@@ -18,14 +18,15 @@ namespace TemploOnline.Controllers
       SignInManager<User> signInManager)
       : base(context, userManager, roleManager) => _signInManager = signInManager;
 
-    public ActionResult Index()
+    public ActionResult Index() => Func(() => 
     {
       return View(new LoginViewModel());
-    }
+    }, false);
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<ActionResult> Login(LoginViewModel viewModel, string returnUrl)
+    public async Task<ActionResult> Login(LoginViewModel viewModel, string returnUrl) => 
+      await FuncAsync(async () =>
     {
       if (ModelState.IsValid)
       {
@@ -52,12 +53,13 @@ namespace TemploOnline.Controllers
         }
       }
       return View(nameof(Index), viewModel);
-    }
+    }, false);
 
-    public async Task<ActionResult> Logout()
-    {
+    public async Task<ActionResult> Logout() => await FuncAsync(async () => 
+    {      
       await _signInManager.SignOutAsync();
       return RedirectToAction(nameof(Index));
-    }
+    }, false);
+   
   }
 }

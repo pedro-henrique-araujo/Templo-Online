@@ -22,7 +22,7 @@ namespace TemploOnline.Controllers
     {
     }
 
-    public ActionResult New(int? textbookId)
+    public ActionResult New(int? textbookId) => Func(() =>
     {
       if (textbookId != null)
       {
@@ -35,11 +35,11 @@ namespace TemploOnline.Controllers
         });
       }
       return RedirectToAction("Index", "TextBooks");
-    }   
+    });
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult New(LessonViewModel viewModel)
+    public ActionResult New(LessonViewModel viewModel) => Func(() =>
     {
       if (ModelState.IsValid)
       {       
@@ -58,9 +58,9 @@ namespace TemploOnline.Controllers
       }
       viewModel.LessonNumbers = GetAvailableLessonNumbers(viewModel.TextbookId);
       return View(viewModel);
-    }
+    });
 
-    public ActionResult Details(int? id, int? textbookId)
+    public ActionResult Details(int? id, int? textbookId) => Func(() =>
     {
       if (id != null && textbookId != null)
       {
@@ -73,10 +73,10 @@ namespace TemploOnline.Controllers
         return RedirectToAction("Details", "Textbooks", new { Id = textbookId});
       }
       return RedirectToAction("Index", "Textbooks");
-    }
+    });
 
 
-    public ActionResult Edit(int? id, int? textbookId)
+    public ActionResult Edit(int? id, int? textbookId) => Func(() =>
     {
       if (id != null && textbookId != null)
       {
@@ -98,11 +98,11 @@ namespace TemploOnline.Controllers
         return RedirectToAction("Details", "Textbooks", new { Id = textbookId });
       }
       return RedirectToAction("Index", "Textbooks");
-    }
+    });
 
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(LessonViewModel viewModel)
+    public ActionResult Edit(LessonViewModel viewModel) => Func(() =>
     {
       if (ModelState.IsValid)
       {
@@ -119,8 +119,9 @@ namespace TemploOnline.Controllers
       ));
       viewModel.LessonNumbers = lessonNumbers;
       return View(viewModel);
-    }
+    });
 
+    #region Helpers
     private List<SelectListItem> GetAvailableLessonNumbers(int textbookId)
     {
       var notAvailableNums = _context.Lessons
@@ -139,5 +140,6 @@ namespace TemploOnline.Controllers
 
       return lessonNumbers;
     }
+    #endregion
   }
 }
